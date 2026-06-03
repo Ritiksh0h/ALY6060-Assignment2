@@ -79,7 +79,7 @@ Cited sources are from ALY6060 course lecture materials (Lessons 2-1, 2-2, and 2
 3. No dependencies or installations needed
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/ALY6060-Assignment2.git
+git clone https://github.com/Ritiksh0h/ALY6060-Assignment2.git
 cd ALY6060-Assignment2
 open ALY6060_Dashboard.html   # macOS
 # or double-click the file on Windows
