@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Analytics Tools Survey Dashboard — ALY6060</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: #f4f5f7; color: #1a1a2e; min-height: 100vh; }
+
+  .topbar { background: #0f3460; padding: 0 2rem; display: flex; align-items: center; justify-content: space-between; height: 56px; }
+  .topbar-title { color: #fff; font-size: 15px; font-weight: 600; letter-spacing: 0.2px; }
+  .topbar-meta { color: #a8c4e0; font-size: 12px; }
+
+  .container { max-width: 1200px; margin: 0 auto; padding: 1.5rem 1.5rem 3rem; }
+
+  .filter-section { background: #fff; border-radius: 10px; padding: 14px 20px; margin-bottom: 1.25rem; display: flex; align-items: center; gap: 12px; flex-wrap: wrap; box-shadow: 0 1px 3px rgba(0,0,0,0.07); }
+  .filter-label { font-size: 12px; font-weight: 600; color: #6b7280; text-transform: uppercase; letter-spacing: 0.5px; white-space: nowrap; }
+  .filter-btn { font-size: 12px; padding: 5px 14px; border-radius: 20px; border: 1.5px solid #e5e7eb; background: #fff; color: #4b5563; cursor: pointer; transition: all 0.15s; font-family: inherit; }
+  .filter-btn:hover { border-color: #0f3460; color: #0f3460; }
+  .filter-btn.active { background: #0f3460; color: #fff; border-color: #0f3460; }
+
+  .kpi-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-bottom: 1.25rem; }
+  .kpi { background: #fff; border-radius: 10px; padding: 18px 20px; box-shadow: 0 1px 3px rgba(0,0,0,0.07); border-left: 4px solid #0f3460; }
+  .kpi-label { font-size: 11px; font-weight: 600; color: #6b7280; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px; }
+  .kpi-val { font-size: 28px; font-weight: 700; color: #0f3460; line-height: 1; margin-bottom: 4px; }
+  .kpi-val span { font-size: 14px; font-weight: 400; color: #9ca3af; }
+  .kpi-sub { font-size: 11px; color: #9ca3af; }
+
+  .charts-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 1.25rem; }
+  .chart-card { background: #fff; border-radius: 10px; padding: 20px; box-shadow: 0 1px 3px rgba(0,0,0,0.07); }
+  .chart-card.full { grid-column: 1 / -1; }
+  .card-title { font-size: 13px; font-weight: 600; color: #1a1a2e; margin-bottom: 3px; }
+  .card-desc { font-size: 11px; color: #9ca3af; margin-bottom: 14px; }
+
+  .legend { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 12px; }
+  .legend-item { display: flex; align-items: center; gap: 5px; font-size: 11px; color: #4b5563; }
+  .legend-dot { width: 9px; height: 9px; border-radius: 2px; flex-shrink: 0; }
+
+  .survey-section { background: #fff; border-radius: 10px; padding: 20px; box-shadow: 0 1px 3px rgba(0,0,0,0.07); margin-bottom: 1.25rem; }
+  .survey-title { font-size: 13px; font-weight: 600; color: #1a1a2e; margin-bottom: 14px; padding-bottom: 10px; border-bottom: 1px solid #f3f4f6; }
+  .q-row { display: flex; align-items: flex-start; gap: 12px; padding: 10px 0; border-bottom: 1px solid #f3f4f6; }
+  .q-row:last-child { border-bottom: none; }
+  .q-num { background: #0f3460; color: #fff; border-radius: 6px; width: 24px; height: 24px; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+  .q-text { font-size: 13px; color: #1a1a2e; flex: 1; line-height: 1.5; }
+  .q-type { font-size: 11px; color: #9ca3af; display: block; margin-top: 2px; }
+
+  .footer { text-align: center; font-size: 11px; color: #9ca3af; margin-top: 2rem; }
+
+  @media (max-width: 768px) {
+    .kpi-grid { grid-template-columns: repeat(2, 1fr); }
+    .charts-row { grid-template-columns: 1fr; }
+    .chart-card.full { grid-column: 1; }
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <span class="topbar-title">Analytics Tools Satisfaction — Internal Survey Dashboard</span>
+  <span class="topbar-meta">ALY6060 · Ritik Shah · Northeastern University</span>
+</div>
+
+<div class="container">
+
+  <div class="survey-section">
+    <p class="survey-title">Survey Questions</p>
+    <div class="q-row"><div class="q-num">1</div><div class="q-text">How satisfied are you with the analytics tools provided to you?<span class="q-type">Rating scale: 1 (Very Dissatisfied) – 5 (Very Satisfied)</span></div></div>
+    <div class="q-row"><div class="q-num">2</div><div class="q-text">How often do you use data or analytics tools in your daily work?<span class="q-type">Options: Never · Rarely · Sometimes · Often · Always</span></div></div>
+    <div class="q-row"><div class="q-num">3</div><div class="q-text">Do you feel adequately trained to use the analytics tools available to you?<span class="q-type">Options: Yes · Somewhat · No</span></div></div>
+    <div class="q-row"><div class="q-num">4</div><div class="q-text">How much do analytics tools help you make better business decisions?<span class="q-type">Rating scale: 1 (Not at all) – 5 (Significantly)</span></div></div>
+    <div class="q-row"><div class="q-num">5</div><div class="q-text">How would you rate the overall quality of data you work with?<span class="q-type">Options: Poor · Fair · Good · Very Good · Excellent</span></div></div>
+  </div>
+
+  <div class="filter-section">
+    <span class="filter-label">Filter by Department:</span>
+    <div id="filter-bar"></div>
+  </div>
+
+  <div class="kpi-grid" id="kpis"></div>
+
+  <div class="charts-row">
+    <div class="chart-card">
+      <p class="card-title">Tool satisfaction by department</p>
+      <p class="card-desc">Average Q1 rating (1–5 scale)</p>
+      <div style="position:relative;height:240px;"><canvas id="c1"></canvas></div>
+    </div>
+    <div class="chart-card">
+      <p class="card-title">Usage frequency distribution</p>
+      <p class="card-desc">Q2 — How often employees use analytics tools</p>
+      <div id="leg2" class="legend"></div>
+      <div style="position:relative;height:200px;"><canvas id="c2"></canvas></div>
+    </div>
+  </div>
+
+  <div class="charts-row">
+    <div class="chart-card">
+      <p class="card-title">Training adequacy</p>
+      <p class="card-desc">Q3 — Do employees feel adequately trained?</p>
+      <div id="leg3" class="legend"></div>
+      <div style="position:relative;height:200px;"><canvas id="c3"></canvas></div>
+    </div>
+    <div class="chart-card">
+      <p class="card-title">Decision impact by department</p>
+      <p class="card-desc">Average Q4 rating (1–5 scale)</p>
+      <div style="position:relative;height:240px;"><canvas id="c4"></canvas></div>
+    </div>
+  </div>
+
+  <div class="charts-row">
+    <div class="chart-card full">
+      <p class="card-title">Data quality perception</p>
+      <p class="card-desc">Q5 — Overall distribution of data quality ratings across all respondents</p>
+      <div id="leg5" class="legend"></div>
+      <div style="position:relative;height:200px;"><canvas id="c5"></canvas></div>
+    </div>
+  </div>
+
+  <div class="footer">80 survey respondents · 7 departments · ALY6060: Decision Support & Business Intelligence</div>
+</div>
+
+<script>
+const RAW = `1,Product,3,Sometimes,Somewhat,2,Good
+2,Sales,4,Sometimes,Somewhat,4,Very Good
+3,Product,4,Rarely,Somewhat,2,Good
+4,IT,5,Always,No,3,Very Good
+5,Product,2,Sometimes,Yes,1,Very Good
+6,Product,4,Often,Yes,5,Good
+7,Product,3,Rarely,Somewhat,4,Very Good
+8,Product,5,Always,Yes,2,Good
+9,Finance,2,Always,Yes,3,Good
+10,Marketing,5,Often,Somewhat,1,Poor
+11,IT,2,Sometimes,No,2,Fair
+12,Product,1,Often,Yes,1,Good
+13,HR,1,Often,No,1,Very Good
+14,Operations,2,Sometimes,Somewhat,1,Very Good
+15,Finance,1,Always,Somewhat,3,Fair
+16,Product,5,Often,Yes,4,Good
+17,Product,1,Always,Somewhat,2,Excellent
+18,HR,4,Always,Somewhat,1,Poor
+19,Sales,5,Always,Yes,1,Poor
+20,Marketing,5,Sometimes,Somewhat,3,Good
+21,IT,4,Often,Yes,2,Good
+22,Finance,4,Always,Somewhat,3,Excellent
+23,IT,1,Often,Somewhat,5,Very Good
+24,Product,1,Always,Somewhat,1,Very Good
+25,HR,2,Often,Yes,3,Excellent
+26,Sales,1,Sometimes,Somewhat,5,Very Good
+27,IT,1,Sometimes,Yes,3,Good
+28,Marketing,2,Often,Yes,1,Fair
+29,HR,2,Rarely,Somewhat,2,Very Good
+30,Finance,1,Sometimes,Somewhat,4,Very Good
+31,IT,3,Rarely,Yes,5,Good
+32,HR,5,Often,Yes,3,Good
+33,Sales,2,Often,Yes,5,Excellent
+34,IT,3,Sometimes,No,3,Very Good
+35,Finance,4,Often,No,3,Fair
+36,Finance,4,Sometimes,Yes,3,Good
+37,Marketing,5,Often,No,5,Fair
+38,IT,5,Always,No,5,Good
+39,IT,4,Sometimes,Yes,4,Excellent
+40,Product,3,Sometimes,No,4,Very Good
+41,Sales,3,Sometimes,Somewhat,1,Good
+42,Sales,3,Never,Somewhat,3,Excellent
+43,HR,5,Always,No,3,Very Good
+44,Sales,5,Often,Somewhat,1,Good
+45,Marketing,3,Often,No,3,Good
+46,Finance,4,Sometimes,Yes,4,Very Good
+47,HR,3,Rarely,Somewhat,1,Very Good
+48,Product,1,Sometimes,Yes,1,Excellent
+49,Product,1,Often,Somewhat,3,Good
+50,HR,2,Rarely,Somewhat,1,Fair
+51,Finance,1,Often,Somewhat,5,Poor
+52,Sales,2,Always,Somewhat,1,Excellent
+53,Operations,3,Rarely,No,5,Fair
+54,IT,2,Sometimes,Yes,3,Very Good
+55,HR,5,Sometimes,Yes,1,Good
+56,HR,5,Often,Yes,3,Excellent
+57,IT,2,Often,Somewhat,3,Fair
+58,IT,4,Often,Somewhat,3,Good
+59,Sales,2,Sometimes,Yes,5,Good
+60,Sales,3,Sometimes,Somewhat,4,Excellent
+61,Marketing,3,Sometimes,Yes,2,Good
+62,HR,1,Often,Yes,4,Good
+63,Marketing,3,Often,No,5,Fair
+64,Operations,1,Never,No,5,Good
+65,HR,5,Often,Somewhat,3,Very Good
+66,Operations,3,Often,Somewhat,3,Excellent
+67,Marketing,4,Sometimes,No,2,Good
+68,Finance,1,Often,Somewhat,1,Excellent
+69,Product,4,Always,Somewhat,1,Excellent
+70,IT,5,Always,Yes,3,Excellent
+71,Finance,2,Often,Yes,5,Very Good
+72,Finance,1,Sometimes,Yes,4,Fair
+73,Sales,3,Often,No,2,Very Good
+74,Finance,2,Rarely,Yes,1,Excellent
+75,IT,1,Rarely,Yes,1,Fair
+76,Product,2,Never,Somewhat,4,Poor
+77,Marketing,3,Often,Somewhat,3,Good
+78,Operations,4,Sometimes,No,1,Good
+79,HR,4,Often,Yes,5,Very Good
+80,Marketing,3,Often,Yes,4,Excellent`;
+
+const allData = RAW.trim().split('\n').map(r => {
+  const [id,dept,q1,q2,q3,q4,q5] = r.split(',');
+  return { dept, q1:+q1, q2, q3, q4:+q4, q5 };
+});
+
+const DEPTS = ['Marketing','Finance','Operations','HR','Sales','IT','Product'];
+const DEPT_COLORS = ['#e05c2a','#1a5fa8','#1a9e75','#c94f7c','#c47a15','#5b3db5','#5a8f1e'];
+const FREQ_ORDER = ['Never','Rarely','Sometimes','Often','Always'];
+const FREQ_COLORS = ['#cbd5e0','#a0aec0','#4299e1','#2b6cb0','#1a365d'];
+const TRAIN_COLORS = ['#38a169','#d69e2e','#e53e3e'];
+const QUAL_ORDER = ['Poor','Fair','Good','Very Good','Excellent'];
+const QUAL_COLORS = ['#fc8181','#f6ad55','#68d391','#4299e1','#553c9a'];
+
+let activeFilter = 'All';
+let charts = {};
+
+function filtered() {
+  return activeFilter === 'All' ? allData : allData.filter(d => d.dept === activeFilter);
+}
+function avg(arr) { return arr.length ? +(arr.reduce((a,b)=>a+b,0)/arr.length).toFixed(2) : 0; }
+
+function buildKPIs(data) {
+  const avgSat = avg(data.map(d=>d.q1));
+  const avgImp = avg(data.map(d=>d.q4));
+  const trainedPct = Math.round(data.filter(d=>d.q3==='Yes').length/data.length*100);
+  const oftenPct = Math.round(data.filter(d=>d.q2==='Often'||d.q2==='Always').length/data.length*100);
+  document.getElementById('kpis').innerHTML = `
+    <div class="kpi"><p class="kpi-label">Avg. Tool Satisfaction</p><p class="kpi-val">${avgSat} <span>/ 5</span></p><p class="kpi-sub">Q1 average rating</p></div>
+    <div class="kpi"><p class="kpi-label">Avg. Decision Impact</p><p class="kpi-val">${avgImp} <span>/ 5</span></p><p class="kpi-sub">Q4 average rating</p></div>
+    <div class="kpi"><p class="kpi-label">Adequately Trained</p><p class="kpi-val">${trainedPct}<span>%</span></p><p class="kpi-sub">Responded "Yes" to Q3</p></div>
+    <div class="kpi"><p class="kpi-label">Regular Users</p><p class="kpi-val">${oftenPct}<span>%</span></p><p class="kpi-sub">Use tools often or always</p></div>
+  `;
+}
+
+function buildC1(data) {
+  const vals = DEPTS.map(d => { const r = data.filter(x=>x.dept===d); return r.length ? +avg(r.map(x=>x.q1)).toFixed(2) : 0; });
+  if (charts.c1) charts.c1.destroy();
+  charts.c1 = new Chart(document.getElementById('c1'), {
+    type:'bar', data:{ labels:DEPTS, datasets:[{ data:vals, backgroundColor:DEPT_COLORS, borderRadius:5, borderSkipped:false }] },
+    options:{ responsive:true, maintainAspectRatio:false, plugins:{legend:{display:false}},
+      scales:{ y:{min:0,max:5,ticks:{stepSize:1,font:{size:11}},grid:{color:'#f3f4f6'}}, x:{ticks:{font:{size:10},maxRotation:30},grid:{display:false}} } }
+  });
+}
+
+function buildC2(data) {
+  const counts = FREQ_ORDER.map(f => data.filter(d=>d.q2===f).length);
+  const total = counts.reduce((a,b)=>a+b,0);
+  document.getElementById('leg2').innerHTML = FREQ_ORDER.map((f,i)=>
+    `<span class="legend-item"><span class="legend-dot" style="background:${FREQ_COLORS[i]}"></span>${f} ${Math.round(counts[i]/total*100)}%</span>`).join('');
+  if (charts.c2) charts.c2.destroy();
+  charts.c2 = new Chart(document.getElementById('c2'), {
+    type:'doughnut', data:{ labels:FREQ_ORDER, datasets:[{ data:counts, backgroundColor:FREQ_COLORS, borderWidth:3, borderColor:'#fff' }] },
+    options:{ responsive:true, maintainAspectRatio:false, cutout:'60%', plugins:{legend:{display:false}} }
+  });
+}
+
+function buildC3(data) {
+  const opts = ['Yes','Somewhat','No'];
+  const counts = opts.map(o => data.filter(d=>d.q3===o).length);
+  const total = counts.reduce((a,b)=>a+b,0);
+  document.getElementById('leg3').innerHTML = opts.map((o,i)=>
+    `<span class="legend-item"><span class="legend-dot" style="background:${TRAIN_COLORS[i]}"></span>${o} ${Math.round(counts[i]/total*100)}%</span>`).join('');
+  if (charts.c3) charts.c3.destroy();
+  charts.c3 = new Chart(document.getElementById('c3'), {
+    type:'doughnut', data:{ labels:opts, datasets:[{ data:counts, backgroundColor:TRAIN_COLORS, borderWidth:3, borderColor:'#fff' }] },
+    options:{ responsive:true, maintainAspectRatio:false, cutout:'60%', plugins:{legend:{display:false}} }
+  });
+}
+
+function buildC4(data) {
+  const vals = DEPTS.map(d => { const r = data.filter(x=>x.dept===d); return r.length ? +avg(r.map(x=>x.q4)).toFixed(2) : 0; });
+  if (charts.c4) charts.c4.destroy();
+  charts.c4 = new Chart(document.getElementById('c4'), {
+    type:'bar', data:{ labels:DEPTS, datasets:[{ data:vals, backgroundColor:DEPT_COLORS, borderRadius:5, borderSkipped:false }] },
+    options:{ responsive:true, maintainAspectRatio:false, plugins:{legend:{display:false}},
+      scales:{ y:{min:0,max:5,ticks:{stepSize:1,font:{size:11}},grid:{color:'#f3f4f6'}}, x:{ticks:{font:{size:10},maxRotation:30},grid:{display:false}} } }
+  });
+}
+
+function buildC5(data) {
+  const counts = QUAL_ORDER.map(q => data.filter(d=>d.q5===q).length);
+  const total = counts.reduce((a,b)=>a+b,0);
+  document.getElementById('leg5').innerHTML = QUAL_ORDER.map((q,i)=>
+    `<span class="legend-item"><span class="legend-dot" style="background:${QUAL_COLORS[i]}"></span>${q} ${Math.round(counts[i]/total*100)}%</span>`).join('');
+  if (charts.c5) charts.c5.destroy();
+  charts.c5 = new Chart(document.getElementById('c5'), {
+    type:'bar', data:{ labels:QUAL_ORDER, datasets:[{ data:counts, backgroundColor:QUAL_COLORS, borderRadius:5, borderSkipped:false }] },
+    options:{ responsive:true, maintainAspectRatio:false, plugins:{legend:{display:false}},
+      scales:{ y:{ticks:{stepSize:2,font:{size:11}},grid:{color:'#f3f4f6'}}, x:{ticks:{font:{size:11}},grid:{display:false}} } }
+  });
+}
+
+function render() {
+  const data = filtered();
+  buildKPIs(data); buildC1(data); buildC2(data); buildC3(data); buildC4(data); buildC5(data);
+}
+
+function buildFilters() {
+  const bar = document.getElementById('filter-bar');
+  ['All',...DEPTS].forEach(d => {
+    const btn = document.createElement('button');
+    btn.className = 'filter-btn' + (d==='All' ? ' active' : '');
+    btn.textContent = d;
+    btn.onclick = () => {
+      activeFilter = d;
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      render();
+    };
+    bar.appendChild(btn);
+  });
+}
+
+buildFilters();
+render();
+</script>
+</body>
+</html>
