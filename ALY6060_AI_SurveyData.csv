@@ -1,0 +1,81 @@
+RespondentID,Department,Q1_AIReadiness,Q2_JobConcern,Q3_AISatisfaction,Q4_TrainingAdequacy,Q5_PreferredAITool
+1,IT,3,Not Concerned,1,Yes,Automation Tools
+2,Leadership,2,Moderately Concerned,4,No,Customer Service AI
+3,Operations,3,Moderately Concerned,5,Yes,Writing & Communication Tools
+4,HR,3,Very Concerned,3,Yes,Customer Service AI
+5,Leadership,1,Slightly Concerned,1,Somewhat,Automation Tools
+6,IT,3,Slightly Concerned,2,Yes,Customer Service AI
+7,Sales,3,Very Concerned,2,Yes,Data & Analytics Assistants
+8,Operations,3,Not Concerned,4,Yes,Writing & Communication Tools
+9,IT,3,Moderately Concerned,2,No,Data & Analytics Assistants
+10,IT,4,Not Concerned,5,Yes,Automation Tools
+11,HR,3,Extremely Concerned,5,Somewhat,Customer Service AI
+12,Leadership,4,Slightly Concerned,2,Somewhat,Automation Tools
+13,HR,1,Moderately Concerned,3,Somewhat,Data & Analytics Assistants
+14,Marketing,1,Not Concerned,3,Somewhat,Scheduling & Task Management
+15,Finance,4,Very Concerned,3,No,Writing & Communication Tools
+16,Sales,2,Extremely Concerned,2,Somewhat,Data & Analytics Assistants
+17,Marketing,5,Moderately Concerned,2,No,Writing & Communication Tools
+18,HR,3,Moderately Concerned,2,Yes,Automation Tools
+19,HR,3,Slightly Concerned,4,Somewhat,Customer Service AI
+20,Leadership,3,Very Concerned,2,No,Customer Service AI
+21,Marketing,4,Moderately Concerned,2,Yes,Scheduling & Task Management
+22,Marketing,2,Slightly Concerned,5,No,Scheduling & Task Management
+23,Marketing,2,Very Concerned,2,Somewhat,Writing & Communication Tools
+24,Operations,5,Slightly Concerned,2,No,Customer Service AI
+25,Operations,5,Moderately Concerned,3,Somewhat,Automation Tools
+26,Operations,5,Extremely Concerned,4,No,Customer Service AI
+27,Leadership,1,Moderately Concerned,4,No,Writing & Communication Tools
+28,Leadership,3,Extremely Concerned,4,Yes,Writing & Communication Tools
+29,Finance,4,Moderately Concerned,3,No,Scheduling & Task Management
+30,HR,2,Moderately Concerned,3,Yes,Customer Service AI
+31,HR,4,Moderately Concerned,3,Somewhat,Scheduling & Task Management
+32,Finance,4,Moderately Concerned,3,No,Writing & Communication Tools
+33,Marketing,2,Very Concerned,1,No,Automation Tools
+34,Sales,4,Extremely Concerned,4,No,Data & Analytics Assistants
+35,Marketing,3,Slightly Concerned,2,No,Scheduling & Task Management
+36,Leadership,4,Slightly Concerned,4,Somewhat,Writing & Communication Tools
+37,IT,2,Slightly Concerned,3,No,Writing & Communication Tools
+38,Marketing,4,Moderately Concerned,3,Somewhat,Customer Service AI
+39,HR,4,Not Concerned,2,No,Customer Service AI
+40,Sales,4,Moderately Concerned,3,Yes,Customer Service AI
+41,Operations,4,Very Concerned,3,Yes,Writing & Communication Tools
+42,Marketing,3,Extremely Concerned,2,No,Customer Service AI
+43,Sales,5,Slightly Concerned,5,No,Automation Tools
+44,IT,2,Very Concerned,3,No,Customer Service AI
+45,HR,5,Slightly Concerned,3,Yes,Automation Tools
+46,Operations,2,Very Concerned,3,Somewhat,Automation Tools
+47,IT,4,Not Concerned,2,Somewhat,Data & Analytics Assistants
+48,Marketing,5,Moderately Concerned,5,Somewhat,Data & Analytics Assistants
+49,Leadership,2,Very Concerned,2,Somewhat,Writing & Communication Tools
+50,Sales,3,Moderately Concerned,4,Somewhat,Data & Analytics Assistants
+51,Sales,2,Very Concerned,4,No,Scheduling & Task Management
+52,Leadership,5,Moderately Concerned,3,No,Writing & Communication Tools
+53,Leadership,2,Very Concerned,1,No,Automation Tools
+54,Marketing,1,Not Concerned,1,Yes,Automation Tools
+55,Marketing,4,Slightly Concerned,1,Somewhat,Customer Service AI
+56,Finance,5,Extremely Concerned,3,Yes,Writing & Communication Tools
+57,Leadership,5,Very Concerned,1,Yes,Data & Analytics Assistants
+58,IT,2,Extremely Concerned,4,No,Data & Analytics Assistants
+59,Finance,2,Slightly Concerned,1,Somewhat,Customer Service AI
+60,Finance,2,Moderately Concerned,2,No,Data & Analytics Assistants
+61,Leadership,3,Extremely Concerned,4,No,Customer Service AI
+62,IT,4,Very Concerned,2,Somewhat,Writing & Communication Tools
+63,Operations,3,Very Concerned,3,No,Automation Tools
+64,Marketing,4,Moderately Concerned,3,Yes,Customer Service AI
+65,Marketing,4,Very Concerned,1,Somewhat,Writing & Communication Tools
+66,HR,4,Very Concerned,2,Somewhat,Writing & Communication Tools
+67,Operations,5,Very Concerned,4,Somewhat,Customer Service AI
+68,Finance,4,Moderately Concerned,3,Somewhat,Scheduling & Task Management
+69,Marketing,1,Slightly Concerned,1,Yes,Automation Tools
+70,Leadership,2,Extremely Concerned,2,Somewhat,Customer Service AI
+71,Finance,2,Extremely Concerned,4,Yes,Data & Analytics Assistants
+72,Sales,2,Moderately Concerned,2,Somewhat,Scheduling & Task Management
+73,Leadership,2,Slightly Concerned,4,Somewhat,Data & Analytics Assistants
+74,Marketing,2,Not Concerned,5,Somewhat,Writing & Communication Tools
+75,Sales,4,Very Concerned,5,Yes,Writing & Communication Tools
+76,Operations,3,Very Concerned,2,Yes,Scheduling & Task Management
+77,HR,5,Slightly Concerned,2,Somewhat,Scheduling & Task Management
+78,Sales,3,Moderately Concerned,3,Somewhat,Automation Tools
+79,Leadership,2,Slightly Concerned,1,Somewhat,Writing & Communication Tools
+80,Sales,3,Moderately Concerned,2,Somewhat,Writing & Communication Tools

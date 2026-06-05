@@ -1,16 +1,15 @@
-# ALY6060 — Stakeholder Involvement & Analytics Tools Survey Dashboard
+# ALY6060 — AI Tool Adoption: Internal Stakeholder Survey Dashboard
 
 **Course:** ALY6060: Decision Support & Business Intelligence  
 **Student:** Ritik Shah  
 **University:** Northeastern University  
+**Live Dashboard:** [stakeholder-survey.netlify.app](https://stakeholder-survey.netlify.app)
 
 ---
 
-## Overview
+## Problem Statement
 
-This repository contains the deliverables for Assignment 2: Stakeholder Involvement. The project examines strategies for maintaining stakeholder commitment in data analytics projects, the consequences of low engagement, and how those strategies contribute to building a data-driven organizational culture.
-
-Part 2 presents an internal stakeholder survey on employee satisfaction with analytics tools, powered by a toy dataset of 80 simulated responses across 7 departments, visualized through an interactive HTML dashboard.
+Organizations rolling out AI tools face a critical stakeholder challenge: employees are often unprepared, undertrained, and uncertain about how AI will affect their roles. This internal survey investigates employee readiness, job-displacement concerns, satisfaction with current AI tools, training adequacy, and preferred AI solutions — providing actionable data to guide a more effective, people-centered AI implementation strategy.
 
 ---
 
@@ -19,9 +18,9 @@ Part 2 presents an internal stakeholder survey on employee satisfaction with ana
 ```
 ALY6060-Assignment2/
 │
+├── index.html                           # Part 2 — Interactive survey dashboard (live on Netlify)
+├── ALY6060_AI_SurveyData.csv            # Part 2 — Toy dataset (80 responses, 7 columns)
 ├── ALY6060_Assignment2_RitikShah.docx   # Part 1 — Written report (~1100 words, APA)
-├── ALY6060_SurveyData.csv               # Part 2 — Toy dataset (80 responses, 7 columns)
-├── ALY6060_Dashboard.html               # Part 2 — Interactive survey dashboard
 └── README.md
 ```
 
@@ -44,46 +43,31 @@ Cited sources are from ALY6060 course lecture materials (Lessons 2-1, 2-2, and 2
 
 | # | Question | Response Type |
 |---|----------|--------------|
-| Q1 | How satisfied are you with the analytics tools provided? | 1–5 rating scale |
-| Q2 | How often do you use data/analytics tools in your daily work? | Never / Rarely / Sometimes / Often / Always |
-| Q3 | Do you feel adequately trained to use the analytics tools available? | Yes / Somewhat / No |
-| Q4 | How much do analytics tools help you make better business decisions? | 1–5 rating scale |
-| Q5 | How would you rate the overall quality of data you work with? | Poor / Fair / Good / Very Good / Excellent |
+| Q1 | How ready do you feel to adopt AI tools in your current role? | 1–5 rating scale |
+| Q2 | How concerned are you about AI tools replacing parts of your job? | Not Concerned / Slightly / Moderately / Very / Extremely Concerned |
+| Q3 | How satisfied are you with the AI tools currently available to you at work? | 1–5 rating scale |
+| Q4 | Has your organization provided adequate training and support for AI tool adoption? | Yes / Somewhat / No |
+| Q5 | Which type of AI tool would most improve your productivity and reduce stress? | Automation / Data & Analytics / Writing & Communication / Scheduling / Customer Service AI |
 
 ### Dataset
 
-- **File:** `ALY6060_SurveyData.csv`
+- **File:** `ALY6060_AI_SurveyData.csv`
 - **Rows:** 80 simulated survey responses
-- **Departments:** Marketing, Finance, Operations, HR, Sales, IT, Product
+- **Departments:** Marketing, Operations, IT, HR, Finance, Sales, Leadership
 - **Columns:** RespondentID, Department, Q1–Q5 responses
 
 ### Dashboard
 
-- **File:** `ALY6060_Dashboard.html`
-- Open in any modern browser — no server or install required
+- **Live:** [stakeholder-survey.netlify.app](https://stakeholder-survey.netlify.app)
+- Open `index.html` locally in any browser — no install needed
 - **Charts included:**
-  - KPI cards: avg satisfaction, avg decision impact, % trained, % regular users
-  - Bar chart: tool satisfaction by department (Q1)
-  - Donut chart: usage frequency distribution (Q2)
-  - Donut chart: training adequacy breakdown (Q3)
-  - Bar chart: decision impact by department (Q4)
-  - Bar chart: data quality perception (Q5)
-- **Interactive:** Filter all charts by department using the buttons at the top
-
----
-
-## How to View the Dashboard
-
-1. Clone or download this repository
-2. Open `ALY6060_Dashboard.html` in any browser (Chrome, Firefox, Edge, Safari)
-3. No dependencies or installations needed
-
-```bash
-git clone https://github.com/Ritiksh0h/ALY6060-Assignment2.git
-cd ALY6060-Assignment2
-open ALY6060_Dashboard.html   # macOS
-# or double-click the file on Windows
-```
+  - KPI cards: avg readiness, avg satisfaction, % trained, % high job concern
+  - Bar chart: AI readiness by department (Q1)
+  - Donut chart: job displacement concerns (Q2)
+  - Bar chart: AI satisfaction by department (Q3)
+  - Donut chart: training adequacy (Q4)
+  - Bar chart: preferred AI tools for productivity & stress reduction (Q5)
+- **Interactive:** Filter all charts by department
 
 ---
 
