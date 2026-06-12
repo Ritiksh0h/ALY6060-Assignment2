@@ -1,4 +1,4 @@
-# ALY6060 — AI Tool Adoption: Internal Stakeholder Survey Dashboard
+# ALY6060 — Stakeholder Engagement Gap Dashboard: AI Implementation
 
 **Course:** ALY6060: Decision Support & Business Intelligence  
 **Student:** Ritik Shah  
@@ -9,7 +9,9 @@
 
 ## Problem Statement
 
-Organizations rolling out AI tools face a critical stakeholder challenge: employees are often unprepared, undertrained, and uncertain about how AI will affect their roles. This internal survey investigates employee readiness, job-displacement concerns, satisfaction with current AI tools, training adequacy, and preferred AI solutions — providing actionable data to guide a more effective, people-centered AI implementation strategy.
+Organizations rolling out AI tools face a critical stakeholder engagement challenge: not all departments are equally prepared, informed, or supported. This internal survey identifies **which departments have the largest stakeholder engagement gap** during AI implementation at a retail / e-commerce company — and prioritizes them for targeted intervention using a multi-dimensional quadrant model.
+
+The dashboard answers one central question for decision-makers: **Who needs stakeholder engagement the most, and why?**
 
 ---
 
@@ -18,8 +20,8 @@ Organizations rolling out AI tools face a critical stakeholder challenge: employ
 ```
 ALY6060-Assignment2/
 │
-├── index.html                           # Part 2 — Interactive survey dashboard (live on Netlify)
-├── ALY6060_AI_SurveyData.csv            # Part 2 — Toy dataset (80 responses, 7 columns)
+├── index.html                           # Part 2 — Interactive multi-page dashboard (live on Netlify)
+├── ALY6060_Survey_Final.csv             # Part 2 — Toy dataset (100 responses, 7 departments)
 ├── ALY6060_Assignment2_RitikShah.docx   # Part 1 — Written report (~1100 words, APA)
 └── README.md
 ```
@@ -41,33 +43,54 @@ Cited sources are from ALY6060 course lecture materials (Lessons 2-1, 2-2, and 2
 
 ### Survey Questions
 
-| # | Question | Response Type |
-|---|----------|--------------|
-| Q1 | How ready do you feel to adopt AI tools in your current role? | 1–5 rating scale |
-| Q2 | How concerned are you about AI tools replacing parts of your job? | Not Concerned / Slightly / Moderately / Very / Extremely Concerned |
-| Q3 | How satisfied are you with the AI tools currently available to you at work? | 1–5 rating scale |
-| Q4 | Has your organization provided adequate training and support for AI tool adoption? | Yes / Somewhat / No |
-| Q5 | Which type of AI tool would most improve your productivity and reduce stress? | Automation / Data & Analytics / Writing & Communication / Scheduling / Customer Service AI |
+| # | Question | Response Type | Purpose |
+|---|----------|--------------|---------|
+| Q1 | How ready do you feel to adopt and use AI tools in your current role? | 1–5 rating scale | Baseline capability per department |
+| Q2 | How adequate is the AI-related training your department has received? | 1–5 rating scale | **Primary X-axis** of engagement quadrant |
+| Q3 | How open and prepared is your team to adapt to AI-driven organizational change? | 1–5 rating scale | Resistance risk indicator |
+| Q4 | How well does your team understand the quality and strategic value of your data? | 1–5 rating scale | **Primary Y-axis** of engagement quadrant |
+| Q5 | How engaged do you feel as a stakeholder in the AI implementation process? | 1–5 rating scale | Direct engagement gap measurement |
+
+### Quadrant Model
+
+Departments are mapped on two axes — **Training Adequacy (Q2)** vs. **Data Quality Perception (Q4)** — to produce four engagement priority segments:
+
+| Quadrant | Training | Data Perception | Priority | Action |
+|----------|----------|-----------------|----------|--------|
+| I | Low | High | 🔴 Engage First | Understands data value, lacks support — highest ROI |
+| II | High | High | ✅ Champion | Already capable — leverage as peer mentors |
+| III | Low | Low | 🟡 Engage Second | Needs awareness-building before training |
+| IV | High | Low | 🔵 Monitor | Trained but not applying data thinking |
 
 ### Dataset
 
-- **File:** `ALY6060_AI_SurveyData.csv`
-- **Rows:** 80 simulated survey responses
-- **Departments:** Marketing, Operations, IT, HR, Finance, Sales, Leadership
-- **Columns:** RespondentID, Department, Q1–Q5 responses
+- **File:** `ALY6060_Survey_Final.csv`
+- **Rows:** 100 simulated survey responses
+- **Departments:** IT, Marketing, Finance, HR, Customer Service, Store Operations, Warehouse & Logistics
+- **Columns:** RespondentID, Department, Q1–Q5 (all 1–5 rating scales)
 
-### Dashboard
+### Dashboard Pages
 
 - **Live:** [stakeholder-survey.netlify.app](https://stakeholder-survey.netlify.app)
 - Open `index.html` locally in any browser — no install needed
-- **Charts included:**
-  - KPI cards: avg readiness, avg satisfaction, % trained, % high job concern
-  - Bar chart: AI readiness by department (Q1)
-  - Donut chart: job displacement concerns (Q2)
-  - Bar chart: AI satisfaction by department (Q3)
-  - Donut chart: training adequacy (Q4)
-  - Bar chart: preferred AI tools for productivity & stress reduction (Q5)
-- **Interactive:** Filter all charts by department
+
+| Page | Description |
+|------|-------------|
+| Executive Overview | Company-wide engagement health across all 5 dimensions |
+| Engagement Quadrant | Bubble chart: Training Adequacy vs. Data Quality Perception — core prioritization view |
+| Gradient Priority Map | Color-coded heatmap + gradient bars showing urgency across all depts and dimensions |
+| Dept Deep-Dive | Select any department for full radar profile vs. company average |
+| Action Plan | Evidence-based engagement recommendations with projected outcomes |
+| Survey Design | Full survey question documentation with analytical purpose |
+
+---
+
+## Key Findings
+
+- **Warehouse & Logistics** — Quadrant I (Engage First): 18 employees, training adequacy 1.4/5, data quality perception 4.4/5. Highest engagement gap, highest intervention ROI.
+- **Finance** — Quadrant I (Engage First): Understands data value (4.3/5) but severely undertrained (2.3/5).
+- **IT + Marketing** — Quadrant II (Champions): High training and data perception — designated as peer mentors.
+- **Customer Service + Store Operations** — Quadrant III (Engage Second): Low awareness and low training — needs foundational work before tool rollout.
 
 ---
 
@@ -75,4 +98,4 @@ Cited sources are from ALY6060 course lecture materials (Lessons 2-1, 2-2, and 2
 
 - **Dashboard:** HTML, CSS, JavaScript, Chart.js 4.4.1
 - **Report:** Microsoft Word (.docx)
-- **Data:** Custom generated CSV (toy dataset)
+- **Data:** Custom generated CSV (toy dataset with deliberate dept-level profiles)

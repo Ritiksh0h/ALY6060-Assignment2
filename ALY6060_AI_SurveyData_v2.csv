@@ -1,0 +1,121 @@
+RespondentID,Department,Q1a_TechSkillConfidence,Q1b_RoleUnderstanding,Q1c_ComfortIndependent,Q2a_TrainingProvided,Q2b_TrainingRelevant,Q2c_NeedsMoreTraining,Q3a_DisplacementConcern,Q3b_AIWillHelpMe,Q3c_ManagerSupport,Q4a_CurrentlyUsingAI,Q4b_UsageFrequency,Q4c_ToolUsefulness,Q5a_PreferredAITool,Q5b_EstHoursSavedPerWeek
+1,Customer Service,3,2,1,Somewhat,No,Yes,5,2,Yes,No,Never,1,"Customer Personalization AI",10+ hrs/week
+2,HR,4,2,2,No,Somewhat,Yes,4,2,Yes,Yes,Rarely,2,"Writing & Content AI",3-5 hrs/week
+3,Warehouse & Logistics,1,2,1,Somewhat,No,Yes,4,1,No,No,Never,1,"Inventory & Demand Forecasting AI",3-5 hrs/week
+4,HR,3,3,2,Yes,Yes,No,3,2,Somewhat,No,Never,1,"Inventory & Demand Forecasting AI",3-5 hrs/week
+5,Finance,4,3,3,Yes,No,Yes,3,3,Yes,Yes,Weekly,2,"Inventory & Demand Forecasting AI",3-5 hrs/week
+6,IT,3,3,3,No,Somewhat,Yes,2,3,Somewhat,Yes,Weekly,5,"Scheduling & Workforce Management AI",1-2 hrs/week
+7,Finance,4,2,2,Yes,No,No,4,2,Somewhat,Yes,Weekly,4,"Writing & Content AI",6-10 hrs/week
+8,Marketing,2,2,3,Somewhat,No,Yes,3,4,Somewhat,Yes,Daily,3,"Inventory & Demand Forecasting AI",3-5 hrs/week
+9,Store Operations,1,1,2,Somewhat,No,Yes,4,1,No,No,Never,1,"Inventory & Demand Forecasting AI",1-2 hrs/week
+10,Marketing,3,2,2,No,Somewhat,No,4,3,Yes,Yes,Weekly,2,"Inventory & Demand Forecasting AI",6-10 hrs/week
+11,HR,4,2,3,Yes,No,Yes,3,3,Yes,Yes,Rarely,4,"Customer Service Chatbot AI",10+ hrs/week
+12,Customer Service,2,1,3,No,No,No,4,1,Yes,Yes,Rarely,1,"Writing & Content AI",3-5 hrs/week
+13,HR,3,2,3,Yes,Yes,Yes,4,2,Somewhat,No,Never,1,"Scheduling & Workforce Management AI",6-10 hrs/week
+14,HR,2,2,2,No,No,Yes,4,3,Somewhat,No,Never,1,"Scheduling & Workforce Management AI",3-5 hrs/week
+15,Marketing,4,3,2,Somewhat,Yes,Yes,3,2,Somewhat,Yes,Daily,4,"Writing & Content AI",1-2 hrs/week
+16,IT,3,4,4,Somewhat,Yes,No,1,5,Somewhat,Yes,Daily,3,"Customer Personalization AI",6-10 hrs/week
+17,Finance,3,2,3,Somewhat,Somewhat,Yes,5,2,Somewhat,No,Never,1,"Writing & Content AI",6-10 hrs/week
+18,HR,3,3,2,Somewhat,Yes,Yes,2,2,Yes,Yes,Rarely,2,"Writing & Content AI",1-2 hrs/week
+19,Finance,4,2,2,Yes,Somewhat,Yes,4,3,Somewhat,No,Never,1,"Writing & Content AI",6-10 hrs/week
+20,Finance,4,3,3,Yes,Somewhat,Yes,3,2,Somewhat,No,Never,1,"Scheduling & Workforce Management AI",10+ hrs/week
+21,HR,3,3,2,Yes,Yes,No,2,2,No,Yes,Daily,2,"Scheduling & Workforce Management AI",1-2 hrs/week
+22,Finance,2,3,3,No,No,Yes,3,3,Yes,No,Never,1,"Writing & Content AI",3-5 hrs/week
+23,Warehouse & Logistics,1,1,1,No,No,Yes,4,1,No,No,Never,1,"Inventory & Demand Forecasting AI",6-10 hrs/week
+24,IT,4,5,5,Somewhat,Somewhat,Yes,1,4,Yes,Yes,Daily,3,"Customer Personalization AI",6-10 hrs/week
+25,Store Operations,2,1,1,Yes,No,Yes,5,1,No,No,Never,1,"Writing & Content AI",6-10 hrs/week
+26,Finance,2,2,3,Somewhat,No,No,5,3,Somewhat,No,Never,1,"Customer Service Chatbot AI",1-2 hrs/week
+27,Store Operations,1,2,1,Yes,Somewhat,No,3,2,No,Yes,Weekly,3,"Scheduling & Workforce Management AI",1-2 hrs/week
+28,Marketing,3,2,3,Somewhat,Yes,Yes,4,3,Yes,Yes,Weekly,3,"Customer Personalization AI",1-2 hrs/week
+29,Customer Service,2,3,1,Somewhat,No,Yes,5,1,No,Yes,Weekly,2,"Inventory & Demand Forecasting AI",10+ hrs/week
+30,Finance,4,3,2,Somewhat,No,Yes,5,2,No,Yes,Daily,3,"Inventory & Demand Forecasting AI",3-5 hrs/week
+31,HR,4,2,3,No,Somewhat,Yes,2,2,No,Yes,Rarely,4,"Scheduling & Workforce Management AI",3-5 hrs/week
+32,HR,2,3,3,Somewhat,Somewhat,No,3,2,Somewhat,Yes,Rarely,2,"Customer Personalization AI",3-5 hrs/week
+33,Customer Service,1,1,2,Somewhat,Yes,Yes,4,1,Yes,No,Never,1,"Customer Service Chatbot AI",10+ hrs/week
+34,Store Operations,2,2,1,No,No,Yes,5,3,No,No,Never,1,"Scheduling & Workforce Management AI",6-10 hrs/week
+35,Store Operations,1,1,1,Somewhat,No,Yes,4,1,Somewhat,No,Never,1,"Inventory & Demand Forecasting AI",1-2 hrs/week
+36,Finance,3,3,2,Yes,Somewhat,Yes,3,2,No,No,Never,1,"Customer Personalization AI",1-2 hrs/week
+37,Customer Service,2,1,3,Somewhat,Yes,Yes,5,1,Somewhat,No,Never,1,"Writing & Content AI",1-2 hrs/week
+38,HR,2,2,3,No,Somewhat,Yes,2,2,No,Yes,Daily,2,"Scheduling & Workforce Management AI",3-5 hrs/week
+39,Customer Service,2,3,3,No,Somewhat,Yes,3,3,Yes,No,Never,1,"Customer Service Chatbot AI",6-10 hrs/week
+40,IT,3,5,3,Yes,Yes,Yes,2,5,No,Yes,Weekly,5,"Customer Personalization AI",3-5 hrs/week
+41,Store Operations,3,2,1,Somewhat,No,Yes,4,3,No,No,Never,1,"Writing & Content AI",1-2 hrs/week
+42,Warehouse & Logistics,1,2,1,No,No,Yes,5,1,No,No,Never,1,"Inventory & Demand Forecasting AI",1-2 hrs/week
+43,IT,3,3,3,Yes,Yes,No,1,3,Yes,No,Never,1,"Scheduling & Workforce Management AI",1-2 hrs/week
+44,HR,4,3,3,Yes,No,Yes,4,3,Yes,Yes,Rarely,2,"Writing & Content AI",3-5 hrs/week
+45,Warehouse & Logistics,1,1,2,No,Yes,Yes,5,1,No,Yes,Rarely,1,"Scheduling & Workforce Management AI",1-2 hrs/week
+46,HR,3,2,2,Somewhat,No,Yes,2,2,Somewhat,No,Never,1,"Scheduling & Workforce Management AI",3-5 hrs/week
+47,IT,5,3,5,Somewhat,No,No,2,4,Somewhat,Yes,Daily,5,"Customer Personalization AI",6-10 hrs/week
+48,Finance,3,3,2,Yes,Yes,Yes,3,2,Somewhat,No,Never,1,"Customer Personalization AI",6-10 hrs/week
+49,IT,5,5,4,No,Yes,No,2,3,Yes,No,Never,1,"Inventory & Demand Forecasting AI",6-10 hrs/week
+50,Warehouse & Logistics,1,2,2,Somewhat,No,Yes,4,2,No,No,Never,1,"Customer Service Chatbot AI",1-2 hrs/week
+51,HR,2,3,3,Yes,Yes,Yes,3,3,No,Yes,Daily,2,"Customer Personalization AI",3-5 hrs/week
+52,IT,3,3,5,No,Yes,No,1,4,Somewhat,Yes,Weekly,5,"Customer Personalization AI",6-10 hrs/week
+53,Store Operations,2,1,2,Somewhat,Somewhat,Yes,4,2,Yes,Yes,Rarely,1,"Scheduling & Workforce Management AI",6-10 hrs/week
+54,IT,4,3,3,Somewhat,Yes,No,2,4,Yes,Yes,Weekly,5,"Scheduling & Workforce Management AI",10+ hrs/week
+55,Warehouse & Logistics,1,2,1,No,No,Yes,4,1,Somewhat,Yes,Rarely,2,"Writing & Content AI",3-5 hrs/week
+56,Store Operations,1,1,1,No,Somewhat,Yes,3,3,Somewhat,No,Never,1,"Scheduling & Workforce Management AI",6-10 hrs/week
+57,Customer Service,1,3,2,Yes,No,Yes,4,2,Somewhat,Yes,Daily,3,"Inventory & Demand Forecasting AI",3-5 hrs/week
+58,Store Operations,1,1,1,No,Somewhat,Yes,3,3,Somewhat,No,Never,1,"Inventory & Demand Forecasting AI",6-10 hrs/week
+59,Finance,3,2,3,Yes,Somewhat,Yes,4,2,Somewhat,Yes,Rarely,2,"Customer Personalization AI",6-10 hrs/week
+60,IT,3,3,4,Somewhat,Yes,Yes,3,5,No,Yes,Weekly,5,"Writing & Content AI",3-5 hrs/week
+61,Finance,3,2,3,No,No,Yes,5,2,Yes,Yes,Weekly,2,"Writing & Content AI",3-5 hrs/week
+62,Marketing,2,4,3,Somewhat,Yes,No,3,3,No,Yes,Daily,2,"Customer Service Chatbot AI",3-5 hrs/week
+63,Warehouse & Logistics,2,1,1,Somewhat,No,Yes,5,2,Yes,No,Never,1,"Inventory & Demand Forecasting AI",3-5 hrs/week
+64,Warehouse & Logistics,1,1,1,Somewhat,Somewhat,Yes,4,1,No,No,Never,1,"Customer Service Chatbot AI",3-5 hrs/week
+65,HR,2,2,3,Yes,Somewhat,No,2,2,No,Yes,Weekly,3,"Customer Personalization AI",10+ hrs/week
+66,HR,2,3,2,Somewhat,Somewhat,No,2,3,Yes,Yes,Weekly,4,"Scheduling & Workforce Management AI",3-5 hrs/week
+67,IT,4,3,4,No,Somewhat,No,3,3,Yes,Yes,Daily,4,"Scheduling & Workforce Management AI",3-5 hrs/week
+68,IT,3,3,4,Yes,Somewhat,No,1,5,Somewhat,Yes,Daily,4,"Customer Personalization AI",6-10 hrs/week
+69,Warehouse & Logistics,2,1,1,Somewhat,No,Yes,4,1,No,No,Never,1,"Scheduling & Workforce Management AI",3-5 hrs/week
+70,Customer Service,3,3,3,No,Somewhat,Yes,3,1,No,No,Never,1,"Inventory & Demand Forecasting AI",3-5 hrs/week
+71,Customer Service,1,3,2,Somewhat,Yes,Yes,5,1,No,No,Never,1,"Inventory & Demand Forecasting AI",1-2 hrs/week
+72,HR,4,2,2,Somewhat,Yes,Yes,2,2,No,No,Never,1,"Writing & Content AI",3-5 hrs/week
+73,Marketing,2,2,2,Yes,Somewhat,Yes,3,3,No,No,Never,1,"Writing & Content AI",10+ hrs/week
+74,Store Operations,3,2,2,Yes,No,Yes,3,2,No,No,Never,1,"Scheduling & Workforce Management AI",1-2 hrs/week
+75,Store Operations,1,2,1,No,Somewhat,Yes,4,3,Somewhat,Yes,Rarely,1,"Customer Service Chatbot AI",3-5 hrs/week
+76,Warehouse & Logistics,2,2,2,No,Somewhat,Yes,4,2,No,Yes,Rarely,1,"Inventory & Demand Forecasting AI",3-5 hrs/week
+77,Store Operations,1,2,2,Somewhat,No,Yes,3,2,Yes,No,Never,1,"Inventory & Demand Forecasting AI",3-5 hrs/week
+78,Warehouse & Logistics,1,1,2,No,Somewhat,Yes,4,1,Somewhat,No,Never,1,"Inventory & Demand Forecasting AI",1-2 hrs/week
+79,Finance,3,2,2,Yes,Yes,No,4,3,Yes,Yes,Rarely,3,"Scheduling & Workforce Management AI",6-10 hrs/week
+80,Marketing,3,3,3,Yes,Somewhat,Yes,2,2,Yes,Yes,Weekly,2,"Inventory & Demand Forecasting AI",6-10 hrs/week
+81,Warehouse & Logistics,1,2,1,Yes,No,Yes,5,2,Somewhat,No,Never,1,"Inventory & Demand Forecasting AI",1-2 hrs/week
+82,HR,3,3,2,Somewhat,No,Yes,4,2,Somewhat,Yes,Daily,4,"Scheduling & Workforce Management AI",3-5 hrs/week
+83,Finance,3,3,3,Somewhat,No,No,4,3,Somewhat,No,Never,1,"Scheduling & Workforce Management AI",6-10 hrs/week
+84,IT,3,3,5,Yes,Yes,Yes,2,3,Yes,Yes,Daily,4,"Scheduling & Workforce Management AI",6-10 hrs/week
+85,Customer Service,2,1,3,No,No,Yes,3,1,No,No,Never,1,"Scheduling & Workforce Management AI",1-2 hrs/week
+86,Marketing,4,2,4,Somewhat,Yes,Yes,4,3,No,Yes,Daily,3,"Customer Service Chatbot AI",6-10 hrs/week
+87,Marketing,4,2,4,Somewhat,Somewhat,Yes,3,4,No,No,Never,1,"Writing & Content AI",6-10 hrs/week
+88,Warehouse & Logistics,2,1,1,Somewhat,No,Yes,5,2,Somewhat,No,Never,1,"Inventory & Demand Forecasting AI",6-10 hrs/week
+89,Marketing,3,2,2,Yes,Somewhat,No,4,3,Somewhat,Yes,Daily,2,"Customer Service Chatbot AI",6-10 hrs/week
+90,Marketing,2,3,4,No,Yes,Yes,2,3,Somewhat,Yes,Daily,4,"Writing & Content AI",3-5 hrs/week
+91,Store Operations,2,2,1,Somewhat,No,Yes,3,3,Somewhat,No,Never,1,"Scheduling & Workforce Management AI",3-5 hrs/week
+92,Customer Service,1,1,2,Somewhat,Yes,Yes,5,2,No,No,Never,1,"Writing & Content AI",1-2 hrs/week
+93,Store Operations,2,2,1,No,No,Yes,4,1,No,No,Never,1,"Writing & Content AI",1-2 hrs/week
+94,HR,4,3,3,Somewhat,Somewhat,Yes,3,2,No,Yes,Rarely,2,"Writing & Content AI",3-5 hrs/week
+95,IT,4,4,5,Yes,Somewhat,No,3,5,Yes,Yes,Daily,5,"Customer Personalization AI",6-10 hrs/week
+96,Store Operations,1,1,2,No,Somewhat,Yes,5,3,No,No,Never,1,"Scheduling & Workforce Management AI",3-5 hrs/week
+97,Marketing,3,3,2,Yes,No,Yes,4,4,Somewhat,Yes,Weekly,2,"Writing & Content AI",6-10 hrs/week
+98,Warehouse & Logistics,2,2,2,Somewhat,Somewhat,Yes,5,2,Somewhat,No,Never,1,"Customer Personalization AI",3-5 hrs/week
+99,Store Operations,2,2,2,Yes,Somewhat,Yes,3,3,Somewhat,No,Never,1,"Scheduling & Workforce Management AI",3-5 hrs/week
+100,IT,3,5,5,No,Yes,No,2,4,Yes,Yes,Daily,4,"Inventory & Demand Forecasting AI",3-5 hrs/week
+101,Marketing,3,2,4,No,Somewhat,No,4,3,Somewhat,No,Never,1,"Writing & Content AI",3-5 hrs/week
+102,Marketing,3,4,2,Somewhat,Somewhat,Yes,2,2,No,Yes,Weekly,4,"Writing & Content AI",3-5 hrs/week
+103,Store Operations,3,2,2,No,Somewhat,Yes,5,2,Somewhat,No,Never,1,"Scheduling & Workforce Management AI",3-5 hrs/week
+104,IT,4,3,5,Yes,Somewhat,No,3,5,Yes,Yes,Weekly,5,"Inventory & Demand Forecasting AI",3-5 hrs/week
+105,HR,4,3,2,Somewhat,Somewhat,Yes,3,3,Yes,Yes,Daily,4,"Scheduling & Workforce Management AI",3-5 hrs/week
+106,Warehouse & Logistics,1,1,2,Somewhat,Somewhat,No,5,2,Somewhat,Yes,Rarely,2,"Inventory & Demand Forecasting AI",3-5 hrs/week
+107,Warehouse & Logistics,2,2,1,No,Somewhat,Yes,4,2,Somewhat,No,Never,1,"Scheduling & Workforce Management AI",1-2 hrs/week
+108,Customer Service,2,2,3,Somewhat,No,Yes,4,1,Somewhat,No,Never,1,"Inventory & Demand Forecasting AI",1-2 hrs/week
+109,IT,4,3,4,Yes,Yes,No,1,5,Yes,Yes,Daily,3,"Inventory & Demand Forecasting AI",3-5 hrs/week
+110,Store Operations,3,1,2,No,No,Yes,3,1,No,No,Never,1,"Scheduling & Workforce Management AI",3-5 hrs/week
+111,Finance,4,3,3,No,Yes,Yes,4,3,No,No,Never,1,"Customer Personalization AI",1-2 hrs/week
+112,IT,3,4,3,Yes,Yes,No,2,5,Somewhat,Yes,Daily,4,"Writing & Content AI",10+ hrs/week
+113,Marketing,3,3,2,Somewhat,Yes,Yes,4,4,Somewhat,Yes,Daily,3,"Writing & Content AI",1-2 hrs/week
+114,HR,3,3,2,Somewhat,Somewhat,Yes,4,3,Somewhat,No,Never,1,"Customer Personalization AI",10+ hrs/week
+115,Marketing,3,4,2,No,Somewhat,Yes,2,4,No,Yes,Weekly,2,"Writing & Content AI",3-5 hrs/week
+116,Store Operations,3,1,1,No,No,Yes,3,2,No,Yes,Rarely,2,"Scheduling & Workforce Management AI",1-2 hrs/week
+117,Warehouse & Logistics,1,1,1,No,No,Yes,4,2,No,No,Never,1,"Inventory & Demand Forecasting AI",3-5 hrs/week
+118,Customer Service,1,2,1,Somewhat,No,Yes,5,2,No,No,Never,1,"Inventory & Demand Forecasting AI",6-10 hrs/week
+119,Customer Service,3,3,1,No,No,No,5,3,Yes,No,Never,1,"Inventory & Demand Forecasting AI",1-2 hrs/week
+120,Marketing,4,3,4,Somewhat,No,No,2,2,Yes,No,Never,1,"Customer Personalization AI",1-2 hrs/week

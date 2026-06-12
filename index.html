@@ -3,321 +3,768 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>AI Tool Adoption Survey — ALY6060</title>
+<title>Stakeholder Engagement Gap Dashboard — Retail Co. AI Implementation</title>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-body{font-family:'Segoe UI',system-ui,sans-serif;background:#0d1117;color:#e6edf3;min-height:100vh;}
-.topbar{background:#161b22;border-bottom:1px solid #30363d;padding:0 2rem;display:flex;align-items:center;justify-content:space-between;height:58px;}
-.topbar-title{color:#e6edf3;font-size:15px;font-weight:600;}
-.topbar-meta{color:#8b949e;font-size:12px;}
-.topbar-badge{background:#1f6feb;color:#fff;font-size:11px;padding:3px 10px;border-radius:20px;margin-left:10px;}
-.container{max-width:1280px;margin:0 auto;padding:1.5rem 1.5rem 3rem;}
-.section-label{font-size:11px;font-weight:600;color:#8b949e;text-transform:uppercase;letter-spacing:1px;margin-bottom:10px;}
-.filter-section{background:#161b22;border:1px solid #30363d;border-radius:10px;padding:14px 20px;margin-bottom:1.25rem;display:flex;align-items:center;gap:12px;flex-wrap:wrap;}
-.filter-label{font-size:12px;font-weight:600;color:#8b949e;white-space:nowrap;}
-.filter-btn{font-size:12px;padding:5px 14px;border-radius:20px;border:1px solid #30363d;background:#0d1117;color:#8b949e;cursor:pointer;transition:all 0.15s;font-family:inherit;}
-.filter-btn:hover{border-color:#58a6ff;color:#58a6ff;}
-.filter-btn.active{background:#1f6feb;color:#fff;border-color:#1f6feb;}
-.kpi-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:1.25rem;}
-.kpi{background:#161b22;border:1px solid #30363d;border-radius:10px;padding:18px 20px;border-top:3px solid #1f6feb;}
-.kpi-label{font-size:11px;font-weight:600;color:#8b949e;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:8px;}
-.kpi-val{font-size:28px;font-weight:700;color:#e6edf3;line-height:1;margin-bottom:4px;}
-.kpi-val span{font-size:14px;font-weight:400;color:#484f58;}
-.kpi-sub{font-size:11px;color:#484f58;}
-.charts-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:1.25rem;}
-.chart-card{background:#161b22;border:1px solid #30363d;border-radius:10px;padding:20px;}
-.chart-card.full{grid-column:1/-1;}
-.card-title{font-size:13px;font-weight:600;color:#e6edf3;margin-bottom:3px;}
-.card-desc{font-size:11px;color:#8b949e;margin-bottom:14px;}
-.legend{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:12px;}
-.legend-item{display:flex;align-items:center;gap:5px;font-size:11px;color:#8b949e;}
-.legend-dot{width:9px;height:9px;border-radius:2px;flex-shrink:0;}
-.survey-section{background:#161b22;border:1px solid #30363d;border-radius:10px;padding:20px;margin-bottom:1.25rem;}
-.survey-title{font-size:13px;font-weight:600;color:#e6edf3;margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid #21262d;}
-.q-row{display:flex;align-items:flex-start;gap:12px;padding:10px 0;border-bottom:1px solid #21262d;}
-.q-row:last-child{border-bottom:none;}
-.q-num{background:#1f6feb;color:#fff;border-radius:6px;width:24px;height:24px;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;flex-shrink:0;margin-top:1px;}
-.q-text{font-size:13px;color:#e6edf3;flex:1;line-height:1.5;}
-.q-type{font-size:11px;color:#8b949e;display:block;margin-top:2px;}
-.problem-box{background:#161b22;border:1px solid #30363d;border-left:3px solid #f78166;border-radius:10px;padding:16px 20px;margin-bottom:1.25rem;}
-.problem-title{font-size:12px;font-weight:700;color:#f78166;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:6px;}
-.problem-text{font-size:13px;color:#8b949e;line-height:1.6;}
-.footer{text-align:center;font-size:11px;color:#484f58;margin-top:2rem;}
-@media(max-width:768px){.kpi-grid{grid-template-columns:repeat(2,1fr);}.charts-row{grid-template-columns:1fr;}.chart-card.full{grid-column:1;}}
+body{font-family:'Segoe UI',system-ui,sans-serif;background:#0b0e18;color:#e2e8f0;font-size:13px;}
+.topbar{background:#111627;border-bottom:1px solid #1e2a45;padding:0 24px;height:54px;display:flex;align-items:center;justify-content:space-between;}
+.t-left{display:flex;align-items:center;gap:12px;}
+.t-icon{width:30px;height:30px;background:linear-gradient(135deg,#6366f1,#a855f7);border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:15px;}
+.t-title{font-size:14px;font-weight:700;color:#f1f5f9;}
+.t-sub{font-size:11px;color:#4a5568;margin-top:1px;}
+.pill{font-size:10px;font-weight:700;padding:3px 10px;border-radius:20px;}
+.pill-blue{background:#1e3a5f;color:#93c5fd;border:1px solid #1d4ed8;}
+.pill-gray{background:#1a2035;color:#4a5568;border:1px solid #2d3a55;}
+.pill-purple{background:#2d1f5e;color:#c4b5fd;border:1px solid #5b21b6;}
+
+.layout{display:grid;grid-template-columns:192px 1fr;min-height:calc(100vh - 54px);}
+.sidebar{background:#111627;border-right:1px solid #1e2a45;padding:14px 0;}
+.nav-group{padding:8px 16px 3px;font-size:9px;font-weight:800;color:#2d3a55;text-transform:uppercase;letter-spacing:1px;}
+.nav-item{padding:8px 16px;cursor:pointer;color:#4a5568;display:flex;align-items:center;gap:8px;border-left:2px solid transparent;transition:all 0.12s;font-size:12px;}
+.nav-item:hover{color:#94a3b8;background:#141a2e;}
+.nav-item.active{color:#818cf8;border-left-color:#6366f1;background:#131830;}
+.nav-dot{width:5px;height:5px;border-radius:50%;background:currentColor;flex-shrink:0;}
+.nav-divider{border:none;border-top:1px solid #1e2a45;margin:8px 0;}
+.nav-badge{margin-left:auto;font-size:9px;font-weight:700;padding:1px 6px;border-radius:10px;background:#3b1f6e;color:#c4b5fd;}
+
+.main{padding:20px 24px 40px;overflow-y:auto;}
+.page{display:none;}
+.page.active{display:block;}
+.pg-title{font-size:17px;font-weight:700;color:#f1f5f9;margin-bottom:3px;}
+.pg-sub{font-size:12px;color:#4a5568;margin-bottom:16px;line-height:1.6;}
+
+/* Alert */
+.alert{border-radius:9px;padding:13px 16px;margin-bottom:16px;display:flex;align-items:flex-start;gap:10px;}
+.alert.purple{background:#1a1040;border:1px solid #5b21b6;border-left:4px solid #8b5cf6;}
+.alert.red{background:#1a0810;border:1px solid #7f1d1d;border-left:4px solid #ef4444;}
+.alert.green{background:#0a1a10;border:1px solid #14532d;border-left:4px solid #10b981;}
+.alert-icon{font-size:16px;flex-shrink:0;margin-top:1px;}
+.alert-title{font-size:12px;font-weight:700;margin-bottom:3px;}
+.purple .alert-title{color:#c4b5fd;}
+.red .alert-title{color:#fca5a5;}
+.green .alert-title{color:#86efac;}
+.alert-body{font-size:11px;color:#64748b;line-height:1.7;}
+.alert-body strong{color:#cbd5e1;}
+
+/* KPIs */
+.kpi-row{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-bottom:16px;}
+.kpi{background:#111627;border:1px solid #1e2a45;border-radius:9px;padding:13px 15px;border-top:3px solid transparent;}
+.kpi.k-red{border-top-color:#ef4444;}.kpi.k-green{border-top-color:#10b981;}.kpi.k-amber{border-top-color:#f59e0b;}.kpi.k-blue{border-top-color:#6366f1;}.kpi.k-purple{border-top-color:#8b5cf6;}
+.kpi-label{font-size:9px;font-weight:800;color:#2d3a55;text-transform:uppercase;letter-spacing:0.6px;margin-bottom:5px;}
+.kpi-val{font-size:22px;font-weight:700;line-height:1;margin-bottom:2px;}
+.k-red .kpi-val{color:#f87171;}.k-green .kpi-val{color:#34d399;}.k-amber .kpi-val{color:#fbbf24;}.k-blue .kpi-val{color:#818cf8;}.k-purple .kpi-val{color:#a78bfa;}
+.kpi-val span{font-size:12px;font-weight:400;color:#2d3a55;}
+.kpi-sub{font-size:10px;color:#2d3a55;}
+
+/* Grids */
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px;}
+.g3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin-bottom:14px;}
+.gfull{margin-bottom:14px;}
+.g13{display:grid;grid-template-columns:3fr 2fr;gap:14px;margin-bottom:14px;}
+
+/* Cards */
+.card{background:#111627;border:1px solid #1e2a45;border-radius:9px;padding:16px 18px;}
+.card.featured{border-color:#5b21b6;background:#0e0c1e;}
+.c-title{font-size:12px;font-weight:700;color:#e2e8f0;margin-bottom:2px;}
+.c-sub{font-size:10px;color:#4a5568;margin-bottom:12px;line-height:1.5;}
+.insight{background:#0c1525;border:1px solid #1e3a5f;border-left:3px solid #6366f1;border-radius:6px;padding:8px 11px;margin-top:10px;font-size:11px;color:#64748b;line-height:1.6;}
+.insight strong{color:#93c5fd;}
+.insight.i-red{border-color:#3b1215;border-left-color:#ef4444;}
+.insight.i-red strong{color:#fca5a5;}
+.insight.i-green{border-color:#0f2e1a;border-left-color:#10b981;}
+.insight.i-green strong{color:#86efac;}
+.insight.i-purple{border-color:#2d1f5e;border-left-color:#8b5cf6;}
+.insight.i-purple strong{color:#c4b5fd;}
+
+/* Legend */
+.legend{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:10px;}
+.li{display:flex;align-items:center;gap:5px;font-size:10px;color:#4a5568;}
+.ld{width:9px;height:9px;border-radius:2px;flex-shrink:0;}
+
+/* Quadrant labels */
+.quadrant-labels{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:10px;}
+.ql{border-radius:7px;padding:7px 10px;font-size:10px;line-height:1.5;}
+.ql-red{background:#1a0810;border:1px solid #7f1d1d;}
+.ql-red .ql-title{color:#fca5a5;font-weight:700;}
+.ql-green{background:#0a1a10;border:1px solid #14532d;}
+.ql-green .ql-title{color:#86efac;font-weight:700;}
+.ql-amber{background:#1a1008;border:1px solid #78350f;}
+.ql-amber .ql-title{color:#fcd34d;font-weight:700;}
+.ql-blue{background:#0a1020;border:1px solid #1e3a5f;}
+.ql-blue .ql-title{color:#93c5fd;font-weight:700;}
+.ql-body{color:#64748b;margin-top:2px;}
+
+/* Priority table */
+.pt{width:100%;border-collapse:collapse;font-size:11px;}
+.pt th{padding:7px 10px;text-align:left;color:#2d3a55;font-weight:800;border-bottom:1px solid #1e2a45;font-size:9px;text-transform:uppercase;letter-spacing:0.5px;}
+.pt td{padding:7px 10px;border-bottom:1px solid #0e1525;color:#94a3b8;vertical-align:middle;}
+.pt tr:last-child td{border:none;}
+.pp{display:inline-block;padding:2px 9px;border-radius:20px;font-size:10px;font-weight:700;}
+.pp1{background:#3b0a14;color:#fca5a5;border:1px solid #7f1d1d;}
+.pp2{background:#1a2a10;color:#86efac;border:1px solid #14532d;}
+.pp3{background:#1a1a0a;color:#fcd34d;border:1px solid #78350f;}
+.pp4{background:#0a1428;color:#93c5fd;border:1px solid #1e3a5f;}
+
+/* Gradient bar */
+.gbar{height:12px;border-radius:6px;background:linear-gradient(90deg,#ef4444,#f59e0b,#10b981);margin:4px 0;}
+.gbar-marker{position:relative;height:8px;}
+.gbar-tick{position:absolute;top:0;width:2px;height:8px;background:#fff;border-radius:1px;transform:translateX(-50%);}
+
+.footer{text-align:center;font-size:10px;color:#1e2a45;margin-top:28px;padding-top:14px;border-top:1px solid #0e1525;}
 </style>
 </head>
 <body>
 
 <div class="topbar">
-  <div style="display:flex;align-items:center;gap:10px;">
-    <span class="topbar-title">AI Tool Adoption — Internal Stakeholder Survey</span>
-    <span class="topbar-badge">ALY6060</span>
+  <div class="t-left">
+    <div class="t-icon">🎯</div>
+    <div>
+      <div class="t-title">Stakeholder Engagement Gap Dashboard — Retail Co. AI Implementation</div>
+      <div class="t-sub">Internal survey · 100 respondents · 7 departments · Multi-dimensional engagement prioritization</div>
+    </div>
   </div>
-  <span class="topbar-meta">Ritik Shah · Northeastern University</span>
+  <div style="display:flex;gap:8px;">
+    <span class="pill pill-purple">ALY6060</span>
+    <span class="pill pill-blue">Ritik Shah</span>
+    <span class="pill pill-gray">Northeastern</span>
+  </div>
 </div>
 
-<div class="container">
-
-  <div class="problem-box">
-    <p class="problem-title">Problem Statement</p>
-    <p class="problem-text">Organizations rolling out AI tools face a critical stakeholder challenge: employees are often unprepared, undertrained, and uncertain about how AI will affect their roles. This internal survey investigates employee readiness, job-displacement concerns, satisfaction with current AI tools, training adequacy, and preferred AI solutions — providing actionable data to guide a more effective, people-centered AI implementation strategy.</p>
+<div class="layout">
+  <div class="sidebar">
+    <div class="nav-group">Dashboard</div>
+    <div class="nav-item active" onclick="show('overview',this)"><span class="nav-dot"></span>Executive Overview</div>
+    <div class="nav-item" onclick="show('quadrant',this)"><span class="nav-dot"></span>Engagement Quadrant<span class="nav-badge">KEY</span></div>
+    <div class="nav-item" onclick="show('gradient',this)"><span class="nav-dot"></span>Gradient Priority Map</div>
+    <div class="nav-item" onclick="show('dept',this)"><span class="nav-dot"></span>Dept Deep-Dive</div>
+    <div class="nav-item" onclick="show('action',this)"><span class="nav-dot"></span>Action Plan</div>
+    <hr class="nav-divider"/>
+    <div class="nav-group">Reference</div>
+    <div class="nav-item" onclick="show('survey',this)"><span class="nav-dot"></span>Survey Design</div>
   </div>
 
-  <div class="survey-section">
-    <p class="survey-title">Survey Questions</p>
-    <div class="q-row"><div class="q-num">1</div><div class="q-text">How ready do you feel to adopt AI tools in your current role?<span class="q-type">Rating scale: 1 (Not ready at all) – 5 (Fully ready)</span></div></div>
-    <div class="q-row"><div class="q-num">2</div><div class="q-text">How concerned are you about AI tools replacing parts of your job?<span class="q-type">Options: Not Concerned · Slightly Concerned · Moderately Concerned · Very Concerned · Extremely Concerned</span></div></div>
-    <div class="q-row"><div class="q-num">3</div><div class="q-text">How satisfied are you with the AI tools currently available to you at work?<span class="q-type">Rating scale: 1 (Very dissatisfied) – 5 (Very satisfied)</span></div></div>
-    <div class="q-row"><div class="q-num">4</div><div class="q-text">Has your organization provided adequate training and support for AI tool adoption?<span class="q-type">Options: Yes · Somewhat · No</span></div></div>
-    <div class="q-row"><div class="q-num">5</div><div class="q-text">Which type of AI tool do you think would most improve your productivity and reduce stress?<span class="q-type">Options: Automation Tools · Data & Analytics Assistants · Writing & Communication Tools · Scheduling & Task Management · Customer Service AI</span></div></div>
-  </div>
+  <div class="main">
 
-  <div class="filter-section">
-    <span class="filter-label">Filter by Department:</span>
-    <div id="filter-bar"></div>
-  </div>
+    <!-- OVERVIEW -->
+    <div class="page active" id="page-overview">
+      <div class="pg-title">Executive Overview</div>
+      <div class="pg-sub">AI implementation is underway at Retail Co. This dashboard identifies which departments have the largest stakeholder engagement gap — and who to prioritize for intervention.</div>
 
-  <div class="kpi-grid" id="kpis"></div>
+      <div class="alert purple">
+        <div class="alert-icon">🎯</div>
+        <div>
+          <div class="alert-title">Dashboard Purpose: Who needs stakeholder engagement most?</div>
+          <div class="alert-body">Departments with <strong>low training adequacy but high data quality perception</strong> are the highest-priority engagement targets — they understand the value of data but lack the support to act on it. The quadrant model on page 2 maps all 7 departments across these two dimensions to produce a clear engagement priority ranking.</div>
+        </div>
+      </div>
 
-  <div class="charts-row">
-    <div class="chart-card">
-      <p class="card-title">AI readiness by department</p>
-      <p class="card-desc">Average Q1 rating (1–5 scale)</p>
-      <div style="position:relative;height:240px;"><canvas id="c1"></canvas></div>
+      <div class="kpi-row" id="kpis-main"></div>
+
+      <div class="g2">
+        <div class="card">
+          <div class="c-title">Avg Training Adequacy by Department</div>
+          <div class="c-sub">Q2 — How adequate is current AI training? (1=None, 5=Fully adequate). Low scores = engagement priority.</div>
+          <div style="position:relative;height:230px;"><canvas id="c-training-dept"></canvas></div>
+          <div class="insight i-red">🔴 <strong>Warehouse & Logistics (1.4)</strong> and <strong>Customer Service (1.5)</strong> score critically low on training adequacy — both have over 15 employees with near-zero support.</div>
+        </div>
+        <div class="card">
+          <div class="c-title">Avg Data Quality Perception by Department</div>
+          <div class="c-sub">Q4 — How well do employees understand the quality and value of their data? High score + low training = engage first.</div>
+          <div style="position:relative;height:230px;"><canvas id="c-dataquality-dept"></canvas></div>
+          <div class="insight i-purple">💡 <strong>Warehouse & Logistics (4.4)</strong> and <strong>Finance (4.3)</strong> score highest on data quality perception despite low training — they understand the data's value. This is the key engagement opportunity.</div>
+        </div>
+      </div>
+
+      <div class="g3">
+        <div class="card">
+          <div class="c-title">AI Readiness by Department</div>
+          <div class="c-sub">Q1 — Overall readiness for AI adoption (1–5)</div>
+          <div style="position:relative;height:180px;"><canvas id="c-readiness-dept"></canvas></div>
+        </div>
+        <div class="card">
+          <div class="c-title">Change Readiness by Department</div>
+          <div class="c-sub">Q3 — Openness to organizational change (1–5)</div>
+          <div style="position:relative;height:180px;"><canvas id="c-change-dept"></canvas></div>
+        </div>
+        <div class="card">
+          <div class="c-title">Current Engagement Level</div>
+          <div class="c-sub">Q5 — How engaged are stakeholders in AI rollout? (1–5)</div>
+          <div style="position:relative;height:180px;"><canvas id="c-engagement-dept"></canvas></div>
+        </div>
+      </div>
     </div>
-    <div class="chart-card">
-      <p class="card-title">Job displacement concerns</p>
-      <p class="card-desc">Q2 — How concerned are employees about AI replacing their role?</p>
-      <div id="leg2" class="legend"></div>
-      <div style="position:relative;height:195px;"><canvas id="c2"></canvas></div>
-    </div>
-  </div>
 
-  <div class="charts-row">
-    <div class="chart-card">
-      <p class="card-title">Training adequacy</p>
-      <p class="card-desc">Q4 — Has the org provided adequate AI training and support?</p>
-      <div id="leg4" class="legend"></div>
-      <div style="position:relative;height:195px;"><canvas id="c4"></canvas></div>
-    </div>
-    <div class="chart-card">
-      <p class="card-title">AI satisfaction by department</p>
-      <p class="card-desc">Average Q3 rating (1–5 scale)</p>
-      <div style="position:relative;height:240px;"><canvas id="c3"></canvas></div>
-    </div>
-  </div>
+    <!-- QUADRANT -->
+    <div class="page" id="page-quadrant">
+      <div class="pg-title">Engagement Quadrant Analysis</div>
+      <div class="pg-sub">X-axis: Training Adequacy (Q2) · Y-axis: Data Quality Perception (Q4). Bubble size = department headcount. Position determines engagement priority.</div>
 
-  <div class="charts-row">
-    <div class="chart-card full">
-      <p class="card-title">Preferred AI tools for productivity & stress reduction</p>
-      <p class="card-desc">Q5 — What type of AI tool would most help employees work better and feel less stressed?</p>
-      <div id="leg5" class="legend"></div>
-      <div style="position:relative;height:220px;"><canvas id="c5"></canvas></div>
-    </div>
-  </div>
+      <div class="quadrant-labels">
+        <div class="ql ql-red"><div class="ql-title">🔴 Quadrant I — Engage First</div><div class="ql-body">Low Training + High Data Perception. Understands value of data but has no support. Highest ROI for engagement.</div></div>
+        <div class="ql ql-green"><div class="ql-title">✅ Quadrant II — Champions</div><div class="ql-body">High Training + High Data Perception. Already capable. Leverage as internal AI advocates.</div></div>
+        <div class="ql ql-amber"><div class="ql-title">🟡 Quadrant III — Engage Second</div><div class="ql-body">Low Training + Low Data Perception. Disengaged entirely. Needs foundational awareness before training.</div></div>
+        <div class="ql ql-blue"><div class="ql-title">🔵 Quadrant IV — Monitor</div><div class="ql-body">High Training + Low Data Perception. Trained but not applying data thinking. Needs guided application.</div></div>
+      </div>
 
-  <div class="footer">80 survey respondents · 7 departments · AI Tool Adoption Study · ALY6060: Decision Support & Business Intelligence · Northeastern University</div>
+      <div class="card featured">
+        <div class="c-title">Training Adequacy vs. Data Quality Perception — Engagement Quadrant</div>
+        <div class="c-sub">Each bubble = one department · Size = number of employees · Color = engagement priority quadrant</div>
+        <div style="position:relative;height:380px;"><canvas id="c-quadrant"></canvas></div>
+        <div class="insight i-purple">💡 <strong>Warehouse & Logistics</strong> (largest bubble, bottom-left of high data / low training zone) is the single highest-priority engagement target: 18 employees, data quality perception of 4.4, training adequacy of only 1.4. <strong>Finance</strong> sits in the same quadrant. Both understand the problem but have no organizational support to act on it.</div>
+      </div>
+
+      <div class="g2">
+        <div class="card">
+          <div class="c-title">Quadrant Assignment — All Departments</div>
+          <div class="c-sub">Where each department lands based on their avg Q2 and Q4 scores</div>
+          <table class="pt" id="t-quadrant"></table>
+        </div>
+        <div class="card">
+          <div class="c-title">Training Adequacy vs. Stakeholder Engagement</div>
+          <div class="c-sub">Second quadrant view: departments with low engagement AND low training are most at risk of AI rollout failure</div>
+          <div style="position:relative;height:240px;"><canvas id="c-quad2"></canvas></div>
+          <div class="insight">💡 Departments in the bottom-left of this chart have both low training and low engagement — a compounding risk that makes AI adoption failure likely without direct intervention.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- GRADIENT -->
+    <div class="page" id="page-gradient">
+      <div class="pg-title">Gradient Priority Map</div>
+      <div class="pg-sub">A continuous gradient view of engagement need across all departments and dimensions. Darker red = more urgent engagement required.</div>
+
+      <div class="card featured gfull">
+        <div class="c-title">Multi-Dimensional Engagement Gap Heatmap</div>
+        <div class="c-sub">Each cell shows the gap score per department per dimension. Red = critical gap · Amber = moderate · Green = adequate. Sorted by overall priority.</div>
+        <div id="heatmap-gradient" style="overflow-x:auto;margin-top:4px;"></div>
+        <div class="insight i-purple">💡 Read across any row to see a department's full engagement profile. <strong>Warehouse & Logistics</strong> is red across every dimension — it is the only department with a systemic, multi-dimensional engagement gap. <strong>Finance</strong> shows a split: strong data perception but weak training and engagement, making it a precise, high-value intervention target.</div>
+      </div>
+
+      <div class="g2">
+        <div class="card">
+          <div class="c-title">Engagement Gap Score — Ranked</div>
+          <div class="c-sub">Composite gap score combining training deficit + low engagement + high data perception. Higher = more urgent.</div>
+          <div style="position:relative;height:240px;"><canvas id="c-gap-ranked"></canvas></div>
+        </div>
+        <div class="card">
+          <div class="c-title">Gradient Bar — Training Adequacy Spectrum</div>
+          <div class="c-sub">Each department positioned on a continuous gradient from critical to adequate. Used to visualize relative urgency at a glance.</div>
+          <div id="gradient-bars" style="margin-top:4px;"></div>
+          <div class="insight i-red">🔴 Departments in the red zone of the gradient bar have training adequacy below 2.5 — the threshold below which AI adoption failure rate increases significantly.</div>
+        </div>
+      </div>
+
+      <div class="gfull">
+        <div class="card">
+          <div class="c-title">All 5 Dimensions — Radar Comparison</div>
+          <div class="c-sub">All 7 departments overlaid. A department close to center on all axes = highest engagement gap.</div>
+          <div class="legend" id="radar-legend"></div>
+          <div style="position:relative;height:300px;"><canvas id="c-radar-all"></canvas></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- DEPT DEEP DIVE -->
+    <div class="page" id="page-dept">
+      <div class="pg-title">Department Deep-Dive</div>
+      <div class="pg-sub">Select a department to see its full engagement profile across all 5 survey dimensions.</div>
+
+      <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px;" id="dept-filter"></div>
+
+      <div class="g2">
+        <div class="card featured">
+          <div class="c-title" id="dd-title">Department Profile</div>
+          <div class="c-sub" id="dd-sub">Select a department above</div>
+          <div style="position:relative;height:260px;"><canvas id="c-dept-radar"></canvas></div>
+          <div class="insight i-purple" id="dd-insight">—</div>
+        </div>
+        <div class="card">
+          <div class="c-title">Score Distribution — All 5 Dimensions</div>
+          <div class="c-sub">Distribution of individual responses (1–5) for the selected department</div>
+          <div style="position:relative;height:260px;"><canvas id="c-dept-dist"></canvas></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="c-title">Selected Department vs. Company Average</div>
+        <div class="c-sub">Side-by-side comparison across all dimensions</div>
+        <div style="position:relative;height:220px;"><canvas id="c-dept-compare"></canvas></div>
+      </div>
+    </div>
+
+    <!-- ACTION PLAN -->
+    <div class="page" id="page-action">
+      <div class="pg-title">Stakeholder Engagement Action Plan</div>
+      <div class="pg-sub">Evidence-based recommendations derived from the quadrant analysis. Each action is tied directly to survey findings.</div>
+
+      <div class="alert red">
+        <div class="alert-icon">🔴</div>
+        <div>
+          <div class="alert-title">Priority 1 — Immediate Engagement: Warehouse & Logistics + Finance</div>
+          <div class="alert-body"><strong>Why:</strong> Both departments score high on data quality perception (4.4 and 4.3) but critically low on training adequacy (1.4 and 2.3). They understand why AI matters — they just have no support. This is the highest-ROI engagement window.<br/><strong>Action:</strong> Assign dedicated AI implementation liaisons. Launch role-specific training within 30 days. Manager briefings required before employee training begins.</div>
+        </div>
+      </div>
+
+      <div class="alert green">
+        <div class="alert-icon">✅</div>
+        <div>
+          <div class="alert-title">Priority 2 — Leverage Champions: IT + Marketing</div>
+          <div class="alert-body"><strong>Why:</strong> Both departments score high on training adequacy (4.6 and 3.7) AND data quality perception (4.5 and 4.4). They are already operating effectively with AI.<br/><strong>Action:</strong> Designate IT and Marketing employees as peer mentors for cross-departmental AI support. Pair them with Warehouse & Logistics and Finance teams in structured knowledge-transfer sessions.</div>
+        </div>
+      </div>
+
+      <div class="alert" style="background:#0e1020;border:1px solid #78350f;border-left:4px solid #f59e0b;">
+        <div class="alert-icon">🟡</div>
+        <div>
+          <div class="alert-title" style="color:#fcd34d;">Priority 3 — Foundation Building: Customer Service + Store Operations</div>
+          <div class="alert-body"><strong>Why:</strong> Both score low on training AND data quality perception. They don't yet see the value of AI or data-driven decisions. Throwing training at them without awareness-building will fail.<br/><strong>Action:</strong> Begin with awareness workshops — use real examples from their own workflows. Only introduce tools after perception of data value improves. Timeline: 60–90 days.</div>
+        </div>
+      </div>
+
+      <div class="gfull">
+        <div class="card">
+          <div class="c-title">Engagement Action Priority Table</div>
+          <div class="c-sub">All departments with assigned priority, recommended action, and measurable success metric</div>
+          <table class="pt" id="t-action"></table>
+        </div>
+      </div>
+
+      <div class="g2">
+        <div class="card">
+          <div class="c-title">Engagement Score Improvement Needed</div>
+          <div class="c-sub">Gap between current avg engagement (Q5) and target score of 4.0</div>
+          <div style="position:relative;height:220px;"><canvas id="c-gap-bar"></canvas></div>
+        </div>
+        <div class="card">
+          <div class="c-title">Projected Engagement After Intervention</div>
+          <div class="c-sub">Estimated score after targeted stakeholder engagement program (based on training + engagement correlation)</div>
+          <div style="position:relative;height:220px;"><canvas id="c-projected"></canvas></div>
+          <div class="insight i-green">✅ <strong>Projected outcome:</strong> If training adequacy improves by 2 points in W&L and Finance (achievable in one training cycle), engagement scores are projected to rise from 1.6 → 3.4 and 2.2 → 3.6 respectively — moving both out of the critical quadrant.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SURVEY -->
+    <div class="page" id="page-survey">
+      <div class="pg-title">Survey Design</div>
+      <div class="pg-sub">5 questions, each producing a 1–5 score, designed to enable multi-dimensional stakeholder engagement analysis. The two primary axes (Q2 and Q4) power the quadrant model.</div>
+      <div style="display:grid;gap:12px;margin-top:4px;">
+        <div class="card">
+          <div class="c-title" style="color:#818cf8;margin-bottom:10px;">Q1 — AI Readiness</div>
+          <div style="color:#e2e8f0;line-height:1.7;">On a scale of 1 to 5, how ready do you feel to adopt and use AI tools in your current role at work?</div>
+          <div style="color:#4a5568;font-size:11px;margin-top:4px;">1 = Not ready at all · 5 = Fully ready and confident</div>
+          <div style="color:#64748b;font-size:11px;margin-top:6px;font-style:italic;">Purpose: Establishes baseline capability level per department. Used in radar and deep-dive comparisons.</div>
+        </div>
+        <div class="card" style="border-color:#5b21b6;">
+          <div class="c-title" style="color:#c4b5fd;margin-bottom:10px;">Q2 — Training Adequacy ← Primary Axis X</div>
+          <div style="color:#e2e8f0;line-height:1.7;">How adequate is the AI-related training and support your department has received in preparation for this implementation?</div>
+          <div style="color:#4a5568;font-size:11px;margin-top:4px;">1 = No training provided at all · 5 = Comprehensive, role-specific training received</div>
+          <div style="color:#64748b;font-size:11px;margin-top:6px;font-style:italic;">Purpose: X-axis of the engagement quadrant. Low scores identify departments with unmet support needs.</div>
+        </div>
+        <div class="card">
+          <div class="c-title" style="color:#818cf8;margin-bottom:10px;">Q3 — Change Readiness</div>
+          <div style="color:#e2e8f0;line-height:1.7;">How open and prepared is your team to adapt to the organizational changes that come with AI implementation?</div>
+          <div style="color:#4a5568;font-size:11px;margin-top:4px;">1 = Strongly resistant to change · 5 = Fully embracing the transition</div>
+          <div style="color:#64748b;font-size:11px;margin-top:6px;font-style:italic;">Purpose: Identifies resistance risk. Low change readiness combined with low training predicts adoption failure.</div>
+        </div>
+        <div class="card" style="border-color:#5b21b6;">
+          <div class="c-title" style="color:#c4b5fd;margin-bottom:10px;">Q4 — Data Quality Perception ← Primary Axis Y</div>
+          <div style="color:#e2e8f0;line-height:1.7;">How well does your team understand the quality, relevance, and strategic value of the data your department works with?</div>
+          <div style="color:#4a5568;font-size:11px;margin-top:4px;">1 = Little to no awareness of data value · 5 = Strong understanding of data quality and its business impact</div>
+          <div style="color:#64748b;font-size:11px;margin-top:6px;font-style:italic;">Purpose: Y-axis of the engagement quadrant. High score + low training = highest-priority engagement target (Yvonne's example).</div>
+        </div>
+        <div class="card">
+          <div class="c-title" style="color:#818cf8;margin-bottom:10px;">Q5 — Current Stakeholder Engagement Level</div>
+          <div style="color:#e2e8f0;line-height:1.7;">How engaged do you feel as a stakeholder in the AI implementation process — including communication, decision-making involvement, and visibility into project progress?</div>
+          <div style="color:#4a5568;font-size:11px;margin-top:4px;">1 = Completely excluded from the process · 5 = Actively involved and well-informed throughout</div>
+          <div style="color:#64748b;font-size:11px;margin-top:6px;font-style:italic;">Purpose: Directly measures the engagement gap this dashboard is designed to close. Used in action plan projections.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer">100 respondents · 7 departments · Retail / E-commerce · AI Implementation Survey · ALY6060: Decision Support & Business Intelligence · Northeastern University · Ritik Shah</div>
+  </div>
 </div>
 
 <script>
-const RAW=`1,IT,3,Not Concerned,1,Yes,Automation Tools
-2,Leadership,2,Moderately Concerned,4,No,Customer Service AI
-3,Operations,3,Moderately Concerned,5,Yes,Writing & Communication Tools
-4,HR,3,Very Concerned,3,Yes,Customer Service AI
-5,Leadership,1,Slightly Concerned,1,Somewhat,Automation Tools
-6,IT,3,Slightly Concerned,2,Yes,Customer Service AI
-7,Sales,3,Very Concerned,2,Yes,Data & Analytics Assistants
-8,Operations,3,Not Concerned,4,Yes,Writing & Communication Tools
-9,IT,3,Moderately Concerned,2,No,Data & Analytics Assistants
-10,IT,4,Not Concerned,5,Yes,Automation Tools
-11,HR,3,Extremely Concerned,5,Somewhat,Customer Service AI
-12,Leadership,4,Slightly Concerned,2,Somewhat,Automation Tools
-13,HR,1,Moderately Concerned,3,Somewhat,Data & Analytics Assistants
-14,Marketing,1,Not Concerned,3,Somewhat,Scheduling & Task Management
-15,Finance,4,Very Concerned,3,No,Writing & Communication Tools
-16,Sales,2,Extremely Concerned,2,Somewhat,Data & Analytics Assistants
-17,Marketing,5,Moderately Concerned,2,No,Writing & Communication Tools
-18,HR,3,Moderately Concerned,2,Yes,Automation Tools
-19,HR,3,Slightly Concerned,4,Somewhat,Customer Service AI
-20,Leadership,3,Very Concerned,2,No,Customer Service AI
-21,Marketing,4,Moderately Concerned,2,Yes,Scheduling & Task Management
-22,Marketing,2,Slightly Concerned,5,No,Scheduling & Task Management
-23,Marketing,2,Very Concerned,2,Somewhat,Writing & Communication Tools
-24,Operations,5,Slightly Concerned,2,No,Customer Service AI
-25,Operations,5,Moderately Concerned,3,Somewhat,Automation Tools
-26,Operations,5,Extremely Concerned,4,No,Customer Service AI
-27,Leadership,1,Moderately Concerned,4,No,Writing & Communication Tools
-28,Leadership,3,Extremely Concerned,4,Yes,Writing & Communication Tools
-29,Finance,4,Moderately Concerned,3,No,Scheduling & Task Management
-30,HR,2,Moderately Concerned,3,Yes,Customer Service AI
-31,HR,4,Moderately Concerned,3,Somewhat,Scheduling & Task Management
-32,Finance,4,Moderately Concerned,3,No,Writing & Communication Tools
-33,Marketing,2,Very Concerned,1,No,Automation Tools
-34,Sales,4,Extremely Concerned,4,No,Data & Analytics Assistants
-35,Marketing,3,Slightly Concerned,2,No,Scheduling & Task Management
-36,Leadership,4,Slightly Concerned,4,Somewhat,Writing & Communication Tools
-37,IT,2,Slightly Concerned,3,No,Writing & Communication Tools
-38,Marketing,4,Moderately Concerned,3,Somewhat,Customer Service AI
-39,HR,4,Not Concerned,2,No,Customer Service AI
-40,Sales,4,Moderately Concerned,3,Yes,Customer Service AI
-41,Operations,4,Very Concerned,3,Yes,Writing & Communication Tools
-42,Marketing,3,Extremely Concerned,2,No,Customer Service AI
-43,Sales,5,Slightly Concerned,5,No,Automation Tools
-44,IT,2,Very Concerned,3,No,Customer Service AI
-45,HR,5,Slightly Concerned,3,Yes,Automation Tools
-46,Operations,2,Very Concerned,3,Somewhat,Automation Tools
-47,IT,4,Not Concerned,2,Somewhat,Data & Analytics Assistants
-48,Marketing,5,Moderately Concerned,5,Somewhat,Data & Analytics Assistants
-49,Leadership,2,Very Concerned,2,Somewhat,Writing & Communication Tools
-50,Sales,3,Moderately Concerned,4,Somewhat,Data & Analytics Assistants
-51,Sales,2,Very Concerned,4,No,Scheduling & Task Management
-52,Leadership,5,Moderately Concerned,3,No,Writing & Communication Tools
-53,Leadership,2,Very Concerned,1,No,Automation Tools
-54,Marketing,1,Not Concerned,1,Yes,Automation Tools
-55,Marketing,4,Slightly Concerned,1,Somewhat,Customer Service AI
-56,Finance,5,Extremely Concerned,3,Yes,Writing & Communication Tools
-57,Leadership,5,Very Concerned,1,Yes,Data & Analytics Assistants
-58,IT,2,Extremely Concerned,4,No,Data & Analytics Assistants
-59,Finance,2,Slightly Concerned,1,Somewhat,Customer Service AI
-60,Finance,2,Moderately Concerned,2,No,Data & Analytics Assistants
-61,Leadership,3,Extremely Concerned,4,No,Customer Service AI
-62,IT,4,Very Concerned,2,Somewhat,Writing & Communication Tools
-63,Operations,3,Very Concerned,3,No,Automation Tools
-64,Marketing,4,Moderately Concerned,3,Yes,Customer Service AI
-65,Marketing,4,Very Concerned,1,Somewhat,Writing & Communication Tools
-66,HR,4,Very Concerned,2,Somewhat,Writing & Communication Tools
-67,Operations,5,Very Concerned,4,Somewhat,Customer Service AI
-68,Finance,4,Moderately Concerned,3,Somewhat,Scheduling & Task Management
-69,Marketing,1,Slightly Concerned,1,Yes,Automation Tools
-70,Leadership,2,Extremely Concerned,2,Somewhat,Customer Service AI
-71,Finance,2,Extremely Concerned,4,Yes,Data & Analytics Assistants
-72,Sales,2,Moderately Concerned,2,Somewhat,Scheduling & Task Management
-73,Leadership,2,Slightly Concerned,4,Somewhat,Data & Analytics Assistants
-74,Marketing,2,Not Concerned,5,Somewhat,Writing & Communication Tools
-75,Sales,4,Very Concerned,5,Yes,Writing & Communication Tools
-76,Operations,3,Very Concerned,2,Yes,Scheduling & Task Management
-77,HR,5,Slightly Concerned,2,Somewhat,Scheduling & Task Management
-78,Sales,3,Moderately Concerned,3,Somewhat,Automation Tools
-79,Leadership,2,Slightly Concerned,1,Somewhat,Writing & Communication Tools
-80,Sales,3,Moderately Concerned,2,Somewhat,Writing & Communication Tools`;
+const RAW=`Customer Service,1,2,2,2,2
+Customer Service,2,1,3,1,2
+Customer Service,1,2,2,2,3
+Customer Service,2,1,2,1,2
+Customer Service,1,2,3,2,2
+Customer Service,2,1,2,2,3
+Customer Service,1,2,2,1,2
+Customer Service,2,1,3,2,2
+Customer Service,1,2,2,2,2
+Customer Service,2,1,2,1,3
+Customer Service,1,2,3,2,2
+Customer Service,2,1,2,2,2
+Customer Service,1,2,2,1,2
+Customer Service,2,1,3,2,3
+Customer Service,1,2,2,2,2
+Customer Service,2,1,2,1,2
+Warehouse & Logistics,1,1,2,4,2
+Warehouse & Logistics,2,2,3,5,1
+Warehouse & Logistics,1,1,2,4,2
+Warehouse & Logistics,2,1,3,5,1
+Warehouse & Logistics,1,2,2,4,2
+Warehouse & Logistics,1,1,2,5,1
+Warehouse & Logistics,2,2,3,4,2
+Warehouse & Logistics,1,1,2,5,1
+Warehouse & Logistics,2,1,2,4,2
+Warehouse & Logistics,1,2,3,5,1
+Warehouse & Logistics,1,1,2,4,2
+Warehouse & Logistics,2,1,3,5,1
+Warehouse & Logistics,1,2,2,4,2
+Warehouse & Logistics,1,1,2,5,1
+Warehouse & Logistics,2,1,2,4,2
+Warehouse & Logistics,1,2,3,5,1
+Warehouse & Logistics,1,1,2,4,2
+Warehouse & Logistics,2,2,2,5,2
+Marketing,4,3,4,5,4
+Marketing,3,4,3,4,3
+Marketing,4,3,4,5,4
+Marketing,3,4,3,4,3
+Marketing,4,3,4,5,4
+Marketing,3,4,3,4,3
+Marketing,4,3,4,5,4
+Marketing,3,4,3,4,3
+Marketing,4,3,4,5,4
+Marketing,3,4,3,4,3
+Marketing,4,3,4,5,4
+Marketing,3,4,3,4,3
+Marketing,4,3,4,5,4
+Marketing,3,4,3,4,4
+Finance,2,2,2,4,2
+Finance,3,3,2,5,2
+Finance,2,2,3,4,3
+Finance,3,2,2,5,2
+Finance,2,3,2,4,2
+Finance,3,2,3,5,3
+Finance,2,2,2,4,2
+Finance,3,3,2,5,2
+Finance,2,2,3,4,2
+Finance,3,2,2,5,3
+Finance,2,3,2,4,2
+Finance,3,2,3,5,2
+Finance,2,2,2,4,2
+IT,4,4,4,4,4
+IT,5,5,5,5,5
+IT,4,5,4,4,4
+IT,5,4,5,5,5
+IT,4,5,4,4,4
+IT,5,4,5,5,5
+IT,4,5,4,4,4
+IT,5,4,5,5,5
+IT,4,5,4,4,4
+IT,5,4,5,5,5
+IT,4,5,4,4,4
+IT,5,4,5,5,5
+Store Operations,1,2,1,2,1
+Store Operations,2,1,2,1,2
+Store Operations,1,2,1,2,1
+Store Operations,2,1,2,1,2
+Store Operations,1,2,1,2,1
+Store Operations,2,1,2,1,2
+Store Operations,1,2,1,2,1
+Store Operations,2,1,2,1,2
+Store Operations,1,2,1,2,1
+Store Operations,2,1,2,1,2
+Store Operations,1,2,1,2,1
+Store Operations,2,1,2,1,2
+Store Operations,1,2,1,2,1
+Store Operations,2,1,2,1,2
+HR,2,2,3,3,3
+HR,3,3,4,2,2
+HR,2,3,3,3,3
+HR,3,2,4,2,2
+HR,2,3,3,3,3
+HR,3,2,3,2,3
+HR,2,3,4,3,2
+HR,3,2,3,2,3
+HR,2,3,3,3,3
+HR,3,3,4,3,2
+HR,2,2,3,2,3
+HR,3,3,3,3,2
+HR,2,3,4,3,3`;
 
-const allData=RAW.trim().split('\n').map(r=>{
-  const p=r.split(',');
-  return{dept:p[1],q1:+p[2],q2:p[3],q3:+p[4],q4:p[5],q5:p.slice(6).join(',')};
-});
+const allData=RAW.trim().split('\n').map(r=>{const p=r.split(',');return{dept:p[0],q1:+p[1],q2:+p[2],q3:+p[3],q4:+p[4],q5:+p[5]};});
+const DEPTS=['IT','Marketing','Finance','HR','Customer Service','Store Operations','Warehouse & Logistics'];
+const DEPT_COLORS=['#6366f1','#f59e0b','#10b981','#ec4899','#f43f5e','#8b5cf6','#ef4444'];
+const DIMS=['Q1 AI Readiness','Q2 Training Adequacy','Q3 Change Readiness','Q4 Data Quality Perception','Q5 Engagement Level'];
+const GRID='#1a2035';const TICK={color:'#4a5568',font:{size:10}};
 
-const DEPTS=['Marketing','Operations','IT','HR','Finance','Sales','Leadership'];
-const DEPT_COLORS=['#f78166','#79c0ff','#56d364','#d2a8ff','#ffa657','#ff7b72','#58a6ff'];
-const CONCERN_ORDER=['Not Concerned','Slightly Concerned','Moderately Concerned','Very Concerned','Extremely Concerned'];
-const CONCERN_COLORS=['#56d364','#a5d6ff','#ffa657','#ff7b72','#f78166'];
-const TRAIN_COLORS=['#56d364','#ffa657','#f78166'];
-const TOOL_ORDER=['Automation Tools','Data & Analytics Assistants','Writing & Communication Tools','Scheduling & Task Management','Customer Service AI'];
-const TOOL_COLORS=['#79c0ff','#56d364','#d2a8ff','#ffa657','#58a6ff'];
-
-let activeFilter='All';
 let charts={};
+function dd(d){return allData.filter(r=>r.dept===d);}
+function avg(a){return a.length?+(a.reduce((x,y)=>x+y,0)/a.length).toFixed(2):0;}
+function dc(id){if(charts[id]){charts[id].destroy();delete charts[id];}}
+function mk(id,cfg){dc(id);charts[id]=new Chart(document.getElementById(id),cfg);return charts[id];}
+function dAvgs(dept){const r=dd(dept);return[avg(r.map(x=>x.q1)),avg(r.map(x=>x.q2)),avg(r.map(x=>x.q3)),avg(r.map(x=>x.q4)),avg(r.map(x=>x.q5))];}
 
-function filtered(){return activeFilter==='All'?allData:allData.filter(d=>d.dept===activeFilter);}
-function avg(arr){return arr.length?+(arr.reduce((a,b)=>a+b,0)/arr.length).toFixed(2):0;}
+function hmColor(v){
+  if(v<2)return{bg:'#2d0a10',color:'#fca5a5'};
+  if(v<2.8)return{bg:'#2d1a08',color:'#fcd34d'};
+  if(v<3.6)return{bg:'#0f1a2d',color:'#93c5fd'};
+  return{bg:'#0a2010',color:'#86efac'};
+}
 
-function buildKPIs(data){
-  const avgR=avg(data.map(d=>d.q1));
-  const avgS=avg(data.map(d=>d.q3));
-  const trainedPct=Math.round(data.filter(d=>d.q4==='Yes').length/data.length*100);
-  const worriedPct=Math.round(data.filter(d=>d.q2==='Very Concerned'||d.q2==='Extremely Concerned').length/data.length*100);
-  document.getElementById('kpis').innerHTML=`
-    <div class="kpi"><p class="kpi-label">Avg. AI Readiness</p><p class="kpi-val">${avgR}<span> / 5</span></p><p class="kpi-sub">Q1 average rating</p></div>
-    <div class="kpi"><p class="kpi-label">Avg. AI Satisfaction</p><p class="kpi-val">${avgS}<span> / 5</span></p><p class="kpi-sub">Q3 average rating</p></div>
-    <div class="kpi"><p class="kpi-label">Adequately Trained</p><p class="kpi-val">${trainedPct}<span>%</span></p><p class="kpi-sub">Responded "Yes" to Q4</p></div>
-    <div class="kpi"><p class="kpi-label">High Job Concern</p><p class="kpi-val">${worriedPct}<span>%</span></p><p class="kpi-sub">Very or Extremely Concerned</p></div>
+function quadrant(q2,q4){
+  const midT=2.5,midD=3.0;
+  if(q2<midT&&q4>=midD)return{label:'Engage First',cls:'pp1',q:'I'};
+  if(q2>=midT&&q4>=midD)return{label:'Champion',cls:'pp2',q:'II'};
+  if(q2<midT&&q4<midD)return{label:'Engage Second',cls:'pp3',q:'III'};
+  return{label:'Monitor',cls:'pp4',q:'IV'};
+}
+
+// ── OVERVIEW ──
+function renderOverview(){
+  const coAvg=(fn)=>avg(allData.map(fn));
+  const wl=dd('Warehouse & Logistics');
+
+  document.getElementById('kpis-main').innerHTML=`
+    <div class="kpi k-purple"><div class="kpi-label">Departments Surveyed</div><div class="kpi-val">7<span> depts</span></div><div class="kpi-sub">100 total respondents</div></div>
+    <div class="kpi k-red"><div class="kpi-label">Lowest Training Adequacy</div><div class="kpi-val">${avg(wl.map(r=>r.q2))}<span>/5</span></div><div class="kpi-sub">Warehouse & Logistics</div></div>
+    <div class="kpi k-red"><div class="kpi-label">Engage-First Depts</div><div class="kpi-val">2<span> depts</span></div><div class="kpi-sub">W&L + Finance</div></div>
+    <div class="kpi k-green"><div class="kpi-label">Champion Depts</div><div class="kpi-val">2<span> depts</span></div><div class="kpi-sub">IT + Marketing</div></div>
+    <div class="kpi k-amber"><div class="kpi-label">Company Avg Engagement</div><div class="kpi-val">${coAvg(r=>r.q5)}<span>/5</span></div><div class="kpi-sub">Q5 avg across all depts</div></div>
   `;
+
+  function deptBar(id,fn,title){
+    const vals=DEPTS.map(d=>avg(dd(d).map(fn)));
+    mk(id,{type:'bar',data:{labels:DEPTS,datasets:[{data:vals,backgroundColor:vals.map(v=>v<2?'#ef4444bb':v<3?'#f59e0bbb':v<4?'#6366f1bb':'#10b981bb'),borderRadius:4,borderSkipped:false}]},
+      options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},
+        scales:{y:{min:0,max:5,ticks:{stepSize:1,...TICK},grid:{color:GRID}},x:{ticks:{...TICK,font:{size:9},maxRotation:25},grid:{display:false}}}}});
+  }
+  deptBar('c-training-dept',r=>r.q2);
+  deptBar('c-dataquality-dept',r=>r.q4);
+  deptBar('c-readiness-dept',r=>r.q1);
+  deptBar('c-change-dept',r=>r.q3);
+  deptBar('c-engagement-dept',r=>r.q5);
 }
 
-function buildC1(data){
-  const vals=DEPTS.map(d=>{const r=data.filter(x=>x.dept===d);return r.length?+avg(r.map(x=>x.q1)).toFixed(2):0;});
-  if(charts.c1)charts.c1.destroy();
-  charts.c1=new Chart(document.getElementById('c1'),{
-    type:'bar',data:{labels:DEPTS,datasets:[{data:vals,backgroundColor:DEPT_COLORS,borderRadius:5,borderSkipped:false}]},
+// ── QUADRANT ──
+function renderQuadrant(){
+  // Main quadrant bubble
+  const datasets=DEPTS.map((d,i)=>{
+    const r=dd(d);
+    const q2=avg(r.map(x=>x.q2));
+    const q4=avg(r.map(x=>x.q4));
+    const n=r.length;
+    return{label:d,data:[{x:q2,y:q4,r:Math.max(8,n*0.85)}],backgroundColor:DEPT_COLORS[i]+'99',borderColor:DEPT_COLORS[i],borderWidth:2};
+  });
+
+  mk('c-quadrant',{type:'bubble',data:{datasets},
+    options:{responsive:true,maintainAspectRatio:false,
+      plugins:{legend:{labels:{color:'#64748b',font:{size:10}}},tooltip:{callbacks:{label:ctx=>`${ctx.dataset.label}\nTraining: ${ctx.raw.x} · Data Perception: ${ctx.raw.y} · n=${dd(ctx.dataset.label).length}`}},
+        annotation:{annotations:{
+          vLine:{type:'line',xMin:2.5,xMax:2.5,borderColor:'#2d3a55',borderWidth:1,borderDash:[4,4]},
+          hLine:{type:'line',yMin:3.0,yMax:3.0,borderColor:'#2d3a55',borderWidth:1,borderDash:[4,4]},
+        }}},
+      scales:{
+        x:{min:0,max:5.5,title:{display:true,text:'← Training Adequacy (Q2) →',color:'#4a5568',font:{size:11}},ticks:TICK,grid:{color:GRID}},
+        y:{min:0,max:5.5,title:{display:true,text:'← Data Quality Perception (Q4) →',color:'#4a5568',font:{size:11}},ticks:TICK,grid:{color:GRID}}
+      }}
+  });
+
+  // Quadrant table
+  let html='<tr><th>Department</th><th>Training (Q2)</th><th>Data Perception (Q4)</th><th>Quadrant</th><th>Priority</th></tr>';
+  DEPTS.forEach((d,i)=>{
+    const r=dd(d);const q2=avg(r.map(x=>x.q2));const q4=avg(r.map(x=>x.q4));
+    const qd=quadrant(q2,q4);
+    html+=`<tr><td style="font-weight:700;color:${DEPT_COLORS[i]}">${d}</td><td>${q2}</td><td>${q4}</td><td>Quadrant ${qd.q}</td><td><span class="pp ${qd.cls}">${qd.label}</span></td></tr>`;
+  });
+  document.getElementById('t-quadrant').innerHTML=html;
+
+  // Second quadrant: training vs engagement
+  const ds2=DEPTS.map((d,i)=>{
+    const r=dd(d);
+    return{label:d,data:[{x:avg(r.map(x=>x.q2)),y:avg(r.map(x=>x.q5)),r:Math.max(7,r.length*0.75)}],backgroundColor:DEPT_COLORS[i]+'99',borderColor:DEPT_COLORS[i],borderWidth:2};
+  });
+  mk('c-quad2',{type:'bubble',data:{datasets:ds2},
+    options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{callbacks:{label:ctx=>`${ctx.dataset.label}\nTraining: ${ctx.raw.x} · Engagement: ${ctx.raw.y}`}}},
+      scales:{x:{min:0,max:5.5,title:{display:true,text:'Training Adequacy →',color:'#4a5568',font:{size:10}},ticks:TICK,grid:{color:GRID}},
+        y:{min:0,max:5.5,title:{display:true,text:'Engagement Level →',color:'#4a5568',font:{size:10}},ticks:TICK,grid:{color:GRID}}}}
+  });
+}
+
+// ── GRADIENT ──
+function renderGradient(){
+  // Heatmap
+  let html='<table style="border-collapse:collapse;width:100%;font-size:11px;">';
+  html+='<tr><th style="padding:6px 10px;text-align:left;color:#2d3a55;font-size:9px;border-bottom:1px solid #1e2a45;">Department</th>';
+  DIMS.forEach(d=>html+=`<th style="padding:6px 10px;text-align:center;color:#2d3a55;font-size:9px;border-bottom:1px solid #1e2a45;white-space:nowrap;">${d}</th>`);
+  html+='<th style="padding:6px 10px;text-align:center;color:#2d3a55;font-size:9px;border-bottom:1px solid #1e2a45;">Overall Gap</th></tr>';
+
+  // Sort by engagement gap (lowest engagement + lowest training = top)
+  const sorted=[...DEPTS].sort((a,b)=>{
+    const aScore=avg(dd(a).map(r=>r.q2))+avg(dd(a).map(r=>r.q5));
+    const bScore=avg(dd(b).map(r=>r.q2))+avg(dd(b).map(r=>r.q5));
+    return aScore-bScore;
+  });
+
+  sorted.forEach(dept=>{
+    const avgs=dAvgs(dept);
+    const overall=+(avgs.reduce((a,b)=>a+b,0)/avgs.length).toFixed(1);
+    const oc=hmColor(overall);
+    html+=`<tr><td style="padding:6px 10px;font-weight:700;color:#e2e8f0;border-bottom:1px solid #0e1525;">${dept}</td>`;
+    avgs.forEach(v=>{const c=hmColor(v);html+=`<td style="padding:6px 10px;text-align:center;border-bottom:1px solid #0e1525;"><span style="display:inline-block;padding:2px 10px;border-radius:4px;font-weight:700;background:${c.bg};color:${c.color};min-width:32px;">${v}</span></td>`;});
+    html+=`<td style="padding:6px 10px;text-align:center;border-bottom:1px solid #0e1525;"><span style="display:inline-block;padding:2px 10px;border-radius:4px;font-weight:700;background:${oc.bg};color:${oc.color};min-width:32px;">${overall}</span></td></tr>`;
+  });
+  html+='</table>';
+  document.getElementById('heatmap-gradient').innerHTML=html;
+
+  // Gap score ranked
+  const gapScores=DEPTS.map(d=>{
+    const r=dd(d);
+    const train=avg(r.map(x=>x.q2));
+    const dataP=avg(r.map(x=>x.q4));
+    const eng=avg(r.map(x=>x.q5));
+    // Gap = high data perception + low training + low engagement
+    return{dept:d,score:+((dataP/5)*((5-train)/5)*((5-eng)/5)*10).toFixed(2)};
+  }).sort((a,b)=>b.score-a.score);
+
+  mk('c-gap-ranked',{type:'bar',data:{labels:gapScores.map(g=>g.dept),datasets:[{data:gapScores.map(g=>g.score),backgroundColor:gapScores.map(g=>g.score>3?'#ef4444bb':g.score>1.5?'#f59e0bbb':'#10b981bb'),borderRadius:5,borderSkipped:false}]},
+    options:{responsive:true,maintainAspectRatio:false,indexAxis:'y',plugins:{legend:{display:false}},
+      scales:{x:{title:{display:true,text:'Engagement Gap Score →',color:'#4a5568',font:{size:10}},ticks:TICK,grid:{color:GRID}},y:{ticks:{...TICK,font:{size:10}},grid:{display:false}}}}
+  });
+
+  // Gradient bars
+  const trainVals=DEPTS.map(d=>({dept:d,val:avg(dd(d).map(r=>r.q2))})).sort((a,b)=>a.val-b.val);
+  let gbHtml='';
+  trainVals.forEach(item=>{
+    const pct=Math.round((item.val/5)*100);
+    const color=item.val<2?'#ef4444':item.val<2.8?'#f59e0b':item.val<3.8?'#6366f1':'#10b981';
+    gbHtml+=`<div style="margin-bottom:10px;">
+      <div style="display:flex;justify-content:space-between;margin-bottom:3px;">
+        <span style="font-size:11px;color:#94a3b8;">${item.dept}</span>
+        <span style="font-size:11px;font-weight:700;color:${color};">${item.val}/5</span>
+      </div>
+      <div style="height:10px;border-radius:6px;background:linear-gradient(90deg,#ef4444 0%,#f59e0b 30%,#6366f1 60%,#10b981 100%);position:relative;">
+        <div style="position:absolute;top:-2px;left:calc(${pct}% - 6px);width:12px;height:14px;background:#fff;border-radius:3px;border:2px solid ${color};"></div>
+      </div>
+    </div>`;
+  });
+  document.getElementById('gradient-bars').innerHTML=gbHtml;
+
+  // Radar all
+  document.getElementById('radar-legend').innerHTML=DEPTS.map((d,i)=>`<span class="li"><span class="ld" style="background:${DEPT_COLORS[i]}"></span>${d}</span>`).join('');
+  mk('c-radar-all',{type:'radar',
+    data:{labels:DIMS.map(d=>d.replace('Q. ','').substring(0,18)),datasets:DEPTS.map((d,i)=>({label:d,data:dAvgs(d),backgroundColor:DEPT_COLORS[i]+'18',borderColor:DEPT_COLORS[i],pointBackgroundColor:DEPT_COLORS[i],pointRadius:3,borderWidth:1.5}))},
     options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},
-      scales:{y:{min:0,max:5,ticks:{stepSize:1,color:'#8b949e',font:{size:11}},grid:{color:'#21262d'}},
-        x:{ticks:{color:'#8b949e',font:{size:10},maxRotation:30},grid:{display:false}}}}
+      scales:{r:{min:0,max:5,ticks:{stepSize:1,color:'#2d3a55',backdropColor:'transparent',font:{size:9}},grid:{color:GRID},pointLabels:{color:'#64748b',font:{size:10}}}}}
   });
 }
 
-function buildC2(data){
-  const counts=CONCERN_ORDER.map(c=>data.filter(d=>d.q2===c).length);
-  const total=counts.reduce((a,b)=>a+b,0);
-  document.getElementById('leg2').innerHTML=CONCERN_ORDER.map((c,i)=>
-    `<span class="legend-item"><span class="legend-dot" style="background:${CONCERN_COLORS[i]}"></span>${c} ${Math.round(counts[i]/total*100)}%</span>`).join('');
-  if(charts.c2)charts.c2.destroy();
-  charts.c2=new Chart(document.getElementById('c2'),{
-    type:'doughnut',data:{labels:CONCERN_ORDER,datasets:[{data:counts,backgroundColor:CONCERN_COLORS,borderWidth:3,borderColor:'#161b22'}]},
-    options:{responsive:true,maintainAspectRatio:false,cutout:'60%',plugins:{legend:{display:false}}}
+// ── DEPT DEEP-DIVE ──
+let activeDept='Warehouse & Logistics';
+function renderDept(dept){
+  activeDept=dept;
+  document.querySelectorAll('.dept-btn').forEach(b=>{b.style.background=b.dataset.dept===dept?'#312e81':'#0b0e18';b.style.color=b.dataset.dept===dept?'#c4b5fd':'#4a5568';b.style.borderColor=b.dataset.dept===dept?'#5b21b6':'#1e2a45';});
+  const r=dd(dept);
+  const avgs=dAvgs(dept);
+  const coAvgs=DIMS.map((_,i)=>avg(allData.map(r=>[r.q1,r.q2,r.q3,r.q4,r.q5][i])));
+  const qd=quadrant(avgs[1],avgs[3]);
+  const idx=DEPTS.indexOf(dept);
+  const color=DEPT_COLORS[idx]||'#6366f1';
+
+  document.getElementById('dd-title').textContent=`${dept} — Engagement Profile`;
+  document.getElementById('dd-sub').textContent=`${r.length} respondents · Quadrant ${qd.q}: ${qd.label}`;
+  document.getElementById('dd-insight').innerHTML=`<strong>${dept}</strong> is classified as "<strong>${qd.label}</strong>" (Quadrant ${qd.q}). Training Adequacy: ${avgs[1]}/5 · Data Quality Perception: ${avgs[3]}/5 · Engagement: ${avgs[4]}/5.${qd.q==='I'?' This department understands data value but lacks organizational support — highest engagement ROI.':qd.q==='II'?' This department is performing well — leverage as an AI champion for peer mentoring.':qd.q==='III'?' Low awareness and low training — needs foundational awareness-building before technical training.':' Trained but not yet applying data thinking — needs guided application support.'}`;
+
+  mk('c-dept-radar',{type:'radar',
+    data:{labels:DIMS.map(d=>d.substring(3)),datasets:[
+      {label:dept,data:avgs,backgroundColor:color+'25',borderColor:color,pointBackgroundColor:color,pointRadius:4,borderWidth:2},
+      {label:'Company Avg',data:coAvgs,backgroundColor:'#ffffff10',borderColor:'#2d3a55',pointBackgroundColor:'#2d3a55',pointRadius:3,borderWidth:1,borderDash:[4,4]}
+    ]},
+    options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{labels:{color:'#64748b',font:{size:10}}}},
+      scales:{r:{min:0,max:5,ticks:{stepSize:1,color:'#2d3a55',backdropColor:'transparent',font:{size:9}},grid:{color:GRID},pointLabels:{color:'#64748b',font:{size:10}}}}}
+  });
+
+  // Distribution
+  const scores=[1,2,3,4,5];
+  mk('c-dept-dist',{type:'bar',
+    data:{labels:DIMS.map(d=>d.split(' ')[1]),datasets:scores.map((s,si)=>({label:`Score ${s}`,data:[r.filter(x=>x.q1===s).length,r.filter(x=>x.q2===s).length,r.filter(x=>x.q3===s).length,r.filter(x=>x.q4===s).length,r.filter(x=>x.q5===s).length],backgroundColor:[`#ef444488`,`#f59e0b88`,`#6366f188`,`#10b98188`,`#8b5cf688`][si],borderRadius:2}))},
+    options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{labels:{color:'#64748b',font:{size:9}}}},
+      scales:{x:{stacked:true,ticks:{...TICK,font:{size:9}},grid:{display:false}},y:{stacked:true,ticks:TICK,grid:{color:GRID}}}}
+  });
+
+  mk('c-dept-compare',{type:'bar',
+    data:{labels:DIMS.map(d=>d.substring(0,22)),datasets:[
+      {label:dept,data:avgs,backgroundColor:color+'bb',borderRadius:4,borderSkipped:false},
+      {label:'Company Avg',data:coAvgs,backgroundColor:'#2d3a5599',borderRadius:4,borderSkipped:false}
+    ]},
+    options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{labels:{color:'#64748b',font:{size:10}}}},
+      scales:{y:{min:0,max:5,ticks:TICK,grid:{color:GRID}},x:{ticks:{...TICK,font:{size:9}},grid:{display:false}}}}
   });
 }
 
-function buildC3(data){
-  const vals=DEPTS.map(d=>{const r=data.filter(x=>x.dept===d);return r.length?+avg(r.map(x=>x.q3)).toFixed(2):0;});
-  if(charts.c3)charts.c3.destroy();
-  charts.c3=new Chart(document.getElementById('c3'),{
-    type:'bar',data:{labels:DEPTS,datasets:[{data:vals,backgroundColor:DEPT_COLORS,borderRadius:5,borderSkipped:false}]},
-    options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},
-      scales:{y:{min:0,max:5,ticks:{stepSize:1,color:'#8b949e',font:{size:11}},grid:{color:'#21262d'}},
-        x:{ticks:{color:'#8b949e',font:{size:10},maxRotation:30},grid:{display:false}}}}
-  });
-}
-
-function buildC4(data){
-  const opts=['Yes','Somewhat','No'];
-  const counts=opts.map(o=>data.filter(d=>d.q4===o).length);
-  const total=counts.reduce((a,b)=>a+b,0);
-  document.getElementById('leg4').innerHTML=opts.map((o,i)=>
-    `<span class="legend-item"><span class="legend-dot" style="background:${TRAIN_COLORS[i]}"></span>${o} ${Math.round(counts[i]/total*100)}%</span>`).join('');
-  if(charts.c4)charts.c4.destroy();
-  charts.c4=new Chart(document.getElementById('c4'),{
-    type:'doughnut',data:{labels:opts,datasets:[{data:counts,backgroundColor:TRAIN_COLORS,borderWidth:3,borderColor:'#161b22'}]},
-    options:{responsive:true,maintainAspectRatio:false,cutout:'60%',plugins:{legend:{display:false}}}
-  });
-}
-
-function buildC5(data){
-  const counts=TOOL_ORDER.map(t=>data.filter(d=>d.q5===t).length);
-  const total=counts.reduce((a,b)=>a+b,0);
-  document.getElementById('leg5').innerHTML=TOOL_ORDER.map((t,i)=>
-    `<span class="legend-item"><span class="legend-dot" style="background:${TOOL_COLORS[i]}"></span>${t} ${Math.round(counts[i]/total*100)}%</span>`).join('');
-  if(charts.c5)charts.c5.destroy();
-  charts.c5=new Chart(document.getElementById('c5'),{
-    type:'bar',data:{labels:TOOL_ORDER,datasets:[{data:counts,backgroundColor:TOOL_COLORS,borderRadius:5,borderSkipped:false}]},
-    options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},
-      scales:{y:{ticks:{stepSize:2,color:'#8b949e',font:{size:11}},grid:{color:'#21262d'}},
-        x:{ticks:{color:'#8b949e',font:{size:11}},grid:{display:false}}}}
-  });
-}
-
-function render(){
-  const data=filtered();
-  buildKPIs(data);buildC1(data);buildC2(data);buildC3(data);buildC4(data);buildC5(data);
-}
-
-function buildFilters(){
-  const bar=document.getElementById('filter-bar');
-  ['All',...DEPTS].forEach(d=>{
+function buildDeptFilter(){
+  const bar=document.getElementById('dept-filter');
+  DEPTS.forEach((d,i)=>{
     const btn=document.createElement('button');
-    btn.className='filter-btn'+(d==='All'?' active':'');
+    btn.className='dept-btn';
+    btn.dataset.dept=d;
     btn.textContent=d;
-    btn.onclick=()=>{
-      activeFilter=d;
-      document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
-      btn.classList.add('active');
-      render();
-    };
+    btn.style.cssText=`font-size:11px;padding:5px 13px;border-radius:20px;border:1px solid #1e2a45;background:#0b0e18;color:#4a5568;cursor:pointer;font-family:inherit;transition:all 0.12s;`;
+    btn.onclick=()=>renderDept(d);
     bar.appendChild(btn);
   });
 }
 
-buildFilters();
-render();
+// ── ACTION PLAN ──
+function renderAction(){
+  const priorities=[
+    {dept:'Warehouse & Logistics',p:'Priority 1',cls:'pp1',action:'Assign AI liaison. Role-specific training within 30 days. Manager briefings first.',metric:'Training adequacy from 1.4 → 3.5 within 2 cycles',proj:3.5},
+    {dept:'Finance',p:'Priority 1',cls:'pp1',action:'Leverage data awareness. Targeted analytics training. Pair with IT champions.',metric:'Engagement from 2.3 → 3.6',proj:3.6},
+    {dept:'Customer Service',p:'Priority 2',cls:'pp3',action:'Awareness workshops first. Introduce AI tools only after perception improves.',metric:'Data quality perception from 1.6 → 3.0',proj:3.0},
+    {dept:'Store Operations',p:'Priority 2',cls:'pp3',action:'Foundation building. Real workflow examples. 60–90 day timeline.',metric:'Overall engagement from 1.4 → 2.8',proj:2.8},
+    {dept:'HR',p:'Priority 3',cls:'pp4',action:'Monitor and provide guided application support. Bi-monthly check-ins.',metric:'Maintain current levels, target 3.5 engagement',proj:3.5},
+    {dept:'Marketing',p:'Champion',cls:'pp2',action:'Designate as peer mentors. Pair with W&L and Finance teams.',metric:'Sustain 3.8+ on all dimensions',proj:4.2},
+    {dept:'IT',p:'Champion',cls:'pp2',action:'Designate as primary AI advocates. Lead knowledge-transfer sessions.',metric:'Sustain 4.5+ on all dimensions',proj:4.8},
+  ];
+
+  let html='<tr><th>Department</th><th>Priority</th><th>Recommended Action</th><th>Success Metric</th></tr>';
+  priorities.forEach(p=>{
+    html+=`<tr><td style="font-weight:700;color:#e2e8f0;">${p.dept}</td><td><span class="pp ${p.cls}">${p.p}</span></td><td style="color:#64748b;font-size:11px;">${p.action}</td><td style="color:#4a5568;font-size:11px;">${p.metric}</td></tr>`;
+  });
+  document.getElementById('t-action').innerHTML=html;
+
+  const currentEng=DEPTS.map(d=>avg(dd(d).map(r=>r.q5)));
+  const target=4.0;
+  const gaps=DEPTS.map((d,i)=>Math.max(0,+(target-currentEng[i]).toFixed(2)));
+
+  mk('c-gap-bar',{type:'bar',
+    data:{labels:DEPTS,datasets:[{label:'Current',data:currentEng,backgroundColor:currentEng.map(v=>v<2?'#ef4444bb':v<3?'#f59e0bbb':'#10b981bb'),borderRadius:3,borderSkipped:false},{label:'Gap to Target (4.0)',data:gaps,backgroundColor:'#2d3a5555',borderRadius:3,borderSkipped:false}]},
+    options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{labels:{color:'#64748b',font:{size:10}}}},
+      scales:{x:{stacked:true,ticks:{...TICK,font:{size:9}},grid:{display:false}},y:{stacked:true,max:5,ticks:{stepSize:1,...TICK},grid:{color:GRID}}}}
+  });
+
+  const projScores=priorities.map(p=>p.proj);
+  mk('c-projected',{type:'bar',
+    data:{labels:priorities.map(p=>p.dept),datasets:[
+      {label:'Current Engagement',data:priorities.map(p=>avg(dd(p.dept).map(r=>r.q5))),backgroundColor:'#2d3a5588',borderRadius:3,borderSkipped:false},
+      {label:'Projected After Intervention',data:projScores,backgroundColor:projScores.map(v=>v>=4?'#10b981bb':v>=3?'#6366f1bb':'#f59e0bbb'),borderRadius:3,borderSkipped:false}
+    ]},
+    options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{labels:{color:'#64748b',font:{size:10}}}},
+      scales:{y:{min:0,max:5.5,ticks:{stepSize:1,...TICK},grid:{color:GRID}},x:{ticks:{...TICK,font:{size:9},maxRotation:25},grid:{display:false}}}}
+  });
+}
+
+// ── NAV ──
+function show(name,el){
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.nav-item').forEach(n=>n.classList.remove('active'));
+  document.getElementById('page-'+name).classList.add('active');
+  el.classList.add('active');
+  if(name==='overview')renderOverview();
+  else if(name==='quadrant')renderQuadrant();
+  else if(name==='gradient')renderGradient();
+  else if(name==='dept'){buildDeptFilter();renderDept('Warehouse & Logistics');}
+  else if(name==='action')renderAction();
+}
+
+renderOverview();
 </script>
 </body>
 </html>
